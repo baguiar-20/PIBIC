@@ -1,9 +1,0 @@
-#include <stdio.h>
-
-int main(void){ //bla bla bla
-    int var;
-    for(var = 0;var <5;var++){
-        printf("%d\n", var);
-    }
-    return 0;
-}
