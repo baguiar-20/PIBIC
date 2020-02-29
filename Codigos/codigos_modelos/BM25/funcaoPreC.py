@@ -156,8 +156,7 @@ def normaliza(texto):
     texto = ''.join(texto)
     texto = texto.lower()
     return texto
-
-
+    
 
 def calcNgram(listapalavras, n):#calcula as n-gramas dos tokens gerados
     ngrams = []
@@ -173,14 +172,17 @@ def insertTERMOS(file, vocab_atual, colecao, tam_doc):
     key_file = file
     vocab_file = vocab_atual
     tam_file = tam_doc
-    colecao.append({key_file: vocab_file, "tam": tam_file})
+    colecao.append({key_file: vocab_file})
     return colecao
 
-def preencheTERMOS(termos_colecao_c, list_c): #Nº de doc em q o termo ocorre na coleção
-    termos_number = np.array(len(termos_colecao_c))
+def preencheTERMOS(termos_colecao_py, list_py):#Nº de doc em q o termo ocorre na coleção
+    termos_number = {}
+    for i in termos_colecao_py:
+        termos_number[i] = None
     for i in termos_number:
         cont = 0
-        for j in list_c:
+        for j in list_py:
+            #print(j)
             for x in j.items():
                 if i in x[1]:
                     cont +=1

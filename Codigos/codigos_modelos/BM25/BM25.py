@@ -17,37 +17,20 @@ def frequency(Doc, Termo):
             qtdTermo += 1
     return qtdTermo
 
-def mediaDoc(docs):
-    cont = 0
-    i = 0
-    todoDoc = []
-    for file in glob.glob(documentos):
-        cont += 1
-        todoDoc[i] = len(documentos)
-        i += 1
-    mediaDoc = sum(mediaDoc)
-    mediaDoc = mediaDoc/cont
 
-    return mediaDoc
 
-def bm25(D, Q,b = 0.75, K1 = 1, avg_doclen = mediaDoc):
-    normaD = len(D)
-    
-    for i in len(normaD):
-        x = frequency(Q,D)*(K1 + 1)
-        y = K1 ((1-b)+b*(normaD/avg_doclen))
-        bm25 = idf[i] * (x/y)
-        return bm25
 
-def calculaIDF(cont_termos, cont_c): #Frequência Inversa do Docmentos
+def calculaIDF(file, cont_termos, cont_c, media_doc, b= 0.75, K1 =1): #Frequência Inversa do Docmentos
     tabelaIDF = {}
     bm25 = {}
     docCont = cont_c
+    avg_doclen = media_doc
     for i,j in cont_termos.items():
-        print(cont_termos)
-        tabelaIDF[i] = math.log(1+((docCont-j+0.5)/j+0.5))
-        #bm25[i] = tabelaIDF[i] * ((j*(k1+1))/(j + k1*((1-b)+b*() )
-    return tabelaIDF
+        print(i,j)
+        tabelaIDF[i] = mt.log(1+((docCont-j+0.5)/j+0.5))
+        bm25[i] = tabelaIDF[i] * ((j*(K1+1))/(j + K1*((1-b)+b*(avg_doclen))))
+    #return tabelaIDF
+    #return bm25
 
 
 

@@ -4,8 +4,6 @@
 #include <sdtio.h>
 #include <conio.h>   // necessário para as funções clrscr e getch
 
-/* jshhdfg*/
-
 void main (){
    clrscr();     // Limpa a tela
    printf("%s", UNIVERSIDADE); // Imprime o nome representado pela constante
