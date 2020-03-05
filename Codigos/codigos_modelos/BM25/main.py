@@ -64,6 +64,4 @@ print("Numero de termo da consulta ocorre no documento: ")
 
 score = bm25.calculaIDF(cont_termos,i,md )
 
-
-
 print(score)
