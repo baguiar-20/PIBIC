@@ -11,10 +11,12 @@ docs_colecao = []
 termos_colecao_c = []
 list_c = []
 cont_c = 0
-tam_doc1 = {}
-tam_doc2 = {}
+tam_list_c = []
+tam_doc= {}
+tam_list = {}
+cont = 0
 i = 0
-
+score = []
 md = 0
 # pre processamento
 for file in glob.glob("/home/brendaum/Área de Trabalho/PIBIC/Codigos/codigos_modelos/documentos/*.txt"):
@@ -25,37 +27,43 @@ for file in glob.glob("/home/brendaum/Área de Trabalho/PIBIC/Codigos/codigos_mo
     codeTEXT = fp.readlines()
     #print(codeTEXT)
     print()
-    cont_c += 1
     texto = fpre.removeSpace(codeTEXT)
-
     texto = fpre.tokensS(codeTEXT, tokensSymC)
-    #print(texto)
-    #print()
     texto = fpre.tokensP(codeTEXT)
-    #print(texto)
-    #print()
     texto = fpre.normaliza(codeTEXT)
-    tam_doc1[i] = len(texto)
-    tam_doc2[i] = [file, len(texto)]
+    tam_doc = len(texto)
+    tam_list[i] = len(texto)
     i += 1
-    
     texto = fpre.calcNgram(texto, 4)
     #print()
     termos = texto
     termos_colecao_c += termos
-    docs_colecao = fpre.insertTERMOS(file, termos, list_c, tam_doc2)
+    docs_colecao, tam_colecao = fpre.insertTERMOS(file, termos, list_c, tam_list_c, tam_doc)
     print()
-for i in tam_doc1:
-    md += tam_doc1[i]
-md = md/cont_c
-print(md)
-#termos_colecao_c = fpre.removeREPEATED(termos_colecao_c)
-#print(list_c)
+for x in tam_list:
+    md += tam_list[x]
+md = md/i
 cont_termos = fpre.preencheTERMOS(termos_colecao_c, list_c)
-#print(cont_termos)
-#print()
-#idf_colection_c = bm25.calculaIDF(cont_termos, cont_c)
-#print(tam_doc)
-#print(idf_colection_c)
 
 
+print()
+
+print("Numero total de documentos: ", i)
+print()
+print("Tamanho de cada documento: ")
+for i in tam_colecao:
+    print(i)
+print()
+print("Media dos documentos(avg_doclen): ", md)
+print()
+print("Nº de documentos em q o termo ocorre na coleção", cont_termos)
+print()
+
+print("Numero de termo da consulta ocorre no documento: ")
+
+
+score = bm25.calculaIDF(cont_termos,i,md )
+
+
+
+print(score)

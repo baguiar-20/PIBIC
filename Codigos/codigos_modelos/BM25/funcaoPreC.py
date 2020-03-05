@@ -168,12 +168,13 @@ def calcNgram(listapalavras, n):#calcula as n-gramas dos tokens gerados
         vocabulario.append(auxi)
     return vocabulario
 
-def insertTERMOS(file, vocab_atual, colecao, tam_doc):
+def insertTERMOS(file, vocab_atual, colecao, tam, tam_doc):
     key_file = file
     vocab_file = vocab_atual
     tam_file = tam_doc
     colecao.append({key_file: vocab_file})
-    return colecao
+    tam.append({key_file: tam_file})
+    return colecao, tam
 
 def preencheTERMOS(termos_colecao_py, list_py):#Nº de doc em q o termo ocorre na coleção
     termos_number = {}
@@ -182,7 +183,6 @@ def preencheTERMOS(termos_colecao_py, list_py):#Nº de doc em q o termo ocorre n
     for i in termos_number:
         cont = 0
         for j in list_py:
-            #print(j)
             for x in j.items():
                 if i in x[1]:
                     cont +=1
