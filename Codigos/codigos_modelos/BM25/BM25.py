@@ -6,28 +6,23 @@ import re
 # ainda falta testar 
 
 
-
-
 def termosConsulta(doc): #numero de termos do documento que ocorre na consulta
     query = []
     termosConsulta = {}
     cont = 0
-    contaTermo = 0
+    d = {}
     for i in doc:
         for j in i.items():
             query = j
             for t in doc:
                 for k in t.items():
                     consulta = k
-                    for c in consulta[1]:
-                        for a in query[1]:
-                            if (a == c):
-                                contaTermo += 1
-                                print(a, c, contaTermo)
-                        if c in query[1]:
-                            termosConsulta[cont] = [consulta[0],query[0], contaTermo]
-                        contaTermo = 0 
-                    cont += 1    
+                    for c in query[1]:
+                        d = consulta[1].count(c)
+                        termosConsulta[cont] = [query[0],consulta[0], c, d]
+                        cont += 1
+    for i in termosConsulta:
+        print(termosConsulta[i])
     return termosConsulta
 
 

@@ -42,7 +42,10 @@ for file in glob.glob("/home/brendaum/Área de Trabalho/PIBIC/Codigos/codigos_mo
     print()
 for x in tam_list:
     md += tam_list[x]
-md = md/i
+if i != 0:
+    md = md/i
+else:
+    md = md
 cont_termos = fpre.preencheTERMOS(termos_colecao_c, list_c)
 
 
