@@ -176,13 +176,13 @@ def insertTERMOS(file, vocab_atual, colecao, tam, tam_doc):
     tam.append({key_file: tam_file})
     return colecao, tam
 
-def preencheTERMOS(termos_colecao_py, list_py):#Nº de doc em q o termo ocorre na coleção
+def preencheTERMOS(termos_colecao_c, list_c):#Nº de doc em q o termo ocorre na coleção
     termos_number = {}
-    for i in termos_colecao_py:
+    for i in termos_colecao_c:
         termos_number[i] = None
     for i in termos_number:
         cont = 0
-        for j in list_py:
+        for j in list_c:
             for x in j.items():
                 if i in x[1]:
                     cont +=1

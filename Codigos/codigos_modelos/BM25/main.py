@@ -61,7 +61,11 @@ print()
 
 print("Numero de termo da consulta ocorre no documento: ")
 
+docdoc = bm25.termosConsulta(docs_colecao)
 
-score = bm25.calculaIDF(cont_termos,i,md )
+print(docdoc)
 
-print(score)
+
+#score = bm25.calculaIDF(cont_termos,i,md )
+
+#print(score)
