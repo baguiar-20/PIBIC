@@ -18,9 +18,12 @@ i = 0
 score = []
 md = 0
 
+#troca 
+arquivos = "/home/brendaum/Área de Trabalho/PIBIC/Codigos/codigos_modelos/Docs_Linguagem_C/*.txt"
+
 # pre processamento
 
-for file in glob.glob("/home/brendaum/Área de Trabalho/PIBIC/Codigos/codigos_modelos/Docs_Linguagem_C/*.txt"):
+for file in glob.glob(arquivos):
     print()
     print("Name of the file:", file)
     fp = open(file, "r", -1, 'utf-8')
@@ -32,10 +35,11 @@ for file in glob.glob("/home/brendaum/Área de Trabalho/PIBIC/Codigos/codigos_mo
     texto = fpre.tokensS(codeTEXT, tokensSymC)
     texto = fpre.tokensP(codeTEXT)
     texto = fpre.normaliza(codeTEXT)
-    tam_doc = len(texto)
-    tam_list[i] = len(texto)
+    
     i += 1
     texto = fpre.calcNgram(texto, 4)
+    tam_doc = len(texto)
+    tam_list[i] = len(texto)
     termos = texto
     termos_colecao_c += termos
     docs_colecao, tam_colecao = fpre.insertTERMOS(file, termos, list_c, tam_list_c, tam_doc)
@@ -51,14 +55,14 @@ termosConsulta = bm25.termosConsulta(docs_colecao)
 #print("Numero total de documentos: ", i)
 #print()
 #print("Tamanho de cada documento: ")
-
+print(tam_colecao)
 #print()
 #print("Media dos documentos(avg_doclen): ", avg_doclen)
 #print()
 #print("Nº de documentos em q o termo ocorre na coleção", cont_termos)
 #print()
 
-#print("Numero de termo da consulta ocorre no documento: ")
+#print("Numero de termo da consulta ocorre no documento: ") frequencia do termo no doc
 #print(termosConsulta)
 
 
@@ -68,12 +72,10 @@ termosConsulta = bm25.termosConsulta(docs_colecao)
 
 #print(termosConsulta)
 
-score = bm25.OkapiBM25(docs_colecao, cont_termos, i,avg_doclen,  termosConsulta,tam_colecao)
+score = bm25.OkapiBM25(docs_colecao, cont_termos, avg_doclen, i, termosConsulta,tam_colecao)
 
 for i in score:
     print(score[i])
-
-
 
 #for i in termosConsulta:
     #print(termosConsulta[i][2])

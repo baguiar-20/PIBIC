@@ -59,9 +59,12 @@ def OkapiBM25(docs,cont_termos, avg_doclen, qtdDocs,termosConsulta, tam_colecao,
                                 for t in x.items():
                                     if(consulta[0] == t[0]):
                                         tam = t[1]
-                            #print(idf, a, tam, avg_doclen)
-                            bm += idf * ((a *(K1+1))/(a + K1*((1-b)+b*(tam/avg_doclen))))
-                    #print('troca', bm)
+                            h = idf * ((a *(K1+1)))
+                            g = K1 * (((1-b)+b*(tam/avg_doclen))+a)
+    
+                            bm += idf * ((a *(K1+1))/(K1 * ((1-b)+b*(tam/avg_doclen)) + a))
+                            print(bm, i)
+                    print('troca')
                     okapi[cont] = [busca[0], consulta[0], bm]
                     cont += 1
                     bm = 0
