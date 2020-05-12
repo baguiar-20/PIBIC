@@ -1,0 +1,59 @@
+//select sort
+
+#include<stdio.h>
+#include<stdlib.h>
+
+void imprimir(int *vet, int tam){
+
+ int i;
+
+ for(i=0; i<tam; i++)  printf("%d ", vet[i]);  printf("\n");
+
+}//end imprimir
+
+
+void select_sort(int *vet,int tam){
+
+ int i, j, menor,aux;
+  
+  for(i=0; i<tam-1;i++){ 
+    menor=i;
+    for(j=i+1;j<tam;j++){
+      if(vet[menor]>vet[j])
+          menor=j;
+    }//end for(j)
+   aux=vet[i];
+   vet[i]=vet[menor];
+   vet[menor]=aux;
+   imprimir(vet, tam);
+  }//end for(i)  
+
+}//end select_sort
+
+void main(void){
+
+ int n;  scanf("%d", &n);
+
+ int *vet;
+
+ int i, sel, j, aux;
+
+ while(n!=0){
+
+   vet=(int *)malloc(n*sizeof(int));
+
+   for(i=0;i<n; i++)   scanf("%d", &vet[i]);
+   
+   if(n!=1)
+    select_sort(vet, n);
+  
+   else
+     imprimir(vet, n); 
+  
+    free(vet);
+  
+   scanf("%d", &n);
+
+ }//end while(n)
+ 
+}//end main

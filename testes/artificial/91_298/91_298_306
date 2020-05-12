@@ -1,0 +1,89 @@
+#include<stdio.h>
+#include<stdlib.h>
+/*
+    carlos philipe
+*/
+void ondenacao(int *vetor ,int tamanho);
+
+void imprimeArray(int *vetor, int tamanho);
+
+void main()
+{
+    int *vetor;
+
+    int i, tamanho;
+
+    scanf("%d",&tamanho);
+
+    while(tamanho!=0)
+    {
+        vetor = (int*)malloc(tamanho*sizeof(int));
+
+        if(vetor == NULL )
+        {
+            printf("SEM MEMORIA");
+            exit(1);
+        }
+
+
+        for(i=0;i<tamanho;i++)
+        {
+            do
+            {
+                scanf("%d",&vetor[i]);
+            }
+            while(vetor[i]<0 || vetor[i]>1000);
+
+        }
+        if(tamanho>1)
+        {
+           ondenacao( vetor , tamanho);
+        }
+        else
+        {
+            imprimeArray(vetor, tamanho);
+        }
+
+
+        free(vetor);
+
+        scanf("%d",&tamanho);
+    }
+
+
+}
+
+void ondenacao(int *vetor ,int tamanho)
+{
+     int i, j, menor, aux;
+
+    for (i = 0; i < (tamanho-1); i++)
+    {
+        menor = i;
+        for (j = (i+1); j < tamanho; j++)
+        {
+              if(vetor[j] < vetor[menor])
+              {
+                menor = j;
+              }
+        }
+        if (i != menor)
+        {
+               aux = vetor[i];
+              vetor[i] = vetor[menor];
+              vetor[menor] =  aux;
+        }
+        imprimeArray(vetor, tamanho);
+    }
+}
+
+void imprimeArray(int *vetor ,int tamanho)
+{
+    int i;
+
+    for(i=0;i<tamanho;i++)
+    {
+        printf("%d ",vetor[i]);
+    }
+    printf("\n");
+}

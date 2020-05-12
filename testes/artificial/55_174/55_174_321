@@ -1,0 +1,18 @@
+#include<stdio.h>
+int main(){
+int pplh, pgfd, ytrd=0;
+scanf("%d", &pplh);
+pgfd=2;
+while(1){
+    if(!(pgfd<=pplh)) break;
+    if(pplh%pgfd==0)
+        ytrd=ytrd+1;
+    while(pplh%pgfd==0){
+        pplh=pplh/pgfd;}
+    ++pgfd;
+}
+if(!(ytrd==1))
+printf("nao potencia prima");
+else
+printf("potencia prima");
+}

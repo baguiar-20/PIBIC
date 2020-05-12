@@ -1,0 +1,14 @@
+#include <stdio.h>
+
+main(){
+	int i,j,N,cont=0;
+	int V[15];
+	for (i=0;i<15;i++)
+		scanf("%d",&V[i]);
+	scanf("%d",&N);
+	for (i=0;i<15;i++){
+		if (V[i]==N)
+			cont=i+1;
+	}
+	printf("%d",cont);
+}

@@ -1,0 +1,15 @@
+#include <stdio.h>
+int main() {
+int kljh, pkgd, ggmk, lgdf, ytrs, fcrt;
+scanf("%d %d", &kljh, &pkgd);
+ggmk = kljh;
+lgdf = pkgd;
+for (;lgdf != 0;) {
+ytrs = ggmk;
+ggmk = lgdf;
+lgdf = ytrs%lgdf;
+}
+fcrt = ggmk;
+printf("%d\n", fcrt);
+return 0;
+}

@@ -1,0 +1,104 @@
+#include<stdio.h>
+
+/*
+    carlos philipe mendes bahia
+*/
+
+void ordenaArray(int tamanho, int *vetor);
+int buscaBinaria(int tamanho, int *vetor, int numero);
+void imprimeArray(int tamanho, int *vetor);
+
+void main()
+{
+
+    int vetor[1000];
+
+    int i,tamanho, numero ;
+
+    scanf("%d",&tamanho);
+
+    for(i=0;i<tamanho;i++)
+    {
+        do
+        {
+            scanf("%d",&vetor[i]);
+        }
+        while(vetor[i]<0 || vetor[i]>1000);
+
+        ordenaArray(i+1,vetor);
+    }
+
+    imprimeArray(tamanho,vetor);
+
+    scanf("%d",&numero);
+    int tem =0;
+
+    while(numero != 0)
+    {   tem =0;
+        tem = buscaBinaria(tamanho, vetor,  numero);
+        if(tem > -1)
+        {
+           printf("SIM\n");
+        }
+        else
+        {
+            printf("NAO\n");
+        }
+        scanf("%d",&numero);
+    }
+}
+
+void ordenaArray(int tamanho, int *vetor)
+{
+        int i,j, aux;
+        for(j=0;j<tamanho;j++)
+        for(i=0;i<tamanho;i++)
+        {
+            if(vetor[i]>vetor[j])
+            {
+                aux=vetor[i];
+                vetor[i]=vetor[j];
+                vetor[j]= aux;
+            }
+
+        }
+}
+
+void imprimeArray(int tamanho, int *vetor)
+{
+    int i;
+
+    for(i=0;i<tamanho;i++)
+    {
+        printf("%d ",vetor[i]);
+    }
+     printf("\n");
+}
+
+int buscaBinaria(int tamanho, int *vetor, int numero)
+{
+    int inicio = 0;
+    int fim = tamanho-1;
+    int meio;
+
+    while(inicio <= fim)
+    {
+        meio =   ( inicio + fim ) / 2;
+
+        if(vetor[meio]<numero)
+        {
+                inicio =  meio ;
+                inicio++;
+        }
+        else if(vetor[meio]>numero)
+        {
+                fim = (meio - 1);
+        }
+        else
+        {
+                return meio;
+        }
+    }
+
+    return -1;
+}

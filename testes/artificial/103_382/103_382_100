@@ -1,0 +1,150 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+typedef struct tipoCod{
+	char sqvx[4];
+	char trew[4];
+	char vdtf[4];
+	int jtyg;
+	struct tipoCod *prox;
+}tipoCod;
+
+tipoCod *criarlista();
+void enfileira(tipoCod *lista,char *sqvx);
+void prindef(tipoCod *lista);
+void printdef(int maior1, char *bsez, int maior2, char *iceu);
+void printlista(tipoCod *L);
+
+main(){
+	tipoCod *lista;
+
+	tipoCod *aux;	
+
+	char sqvx[4];
+	int maior1=0, maior2=0, maior3=0, auxi; 
+	char bsez[4];
+	char iceu[4];
+	char def3[4];
+	char auxs[4];
+	int expAdriaMenezes1;
+	
+	lista = criarlista();
+
+	scanf("%s", sqvx);
+
+	for(;(strcmp(sqvx, "000") != 0);){
+		enfileira(lista,sqvx);
+		scanf("%s", sqvx);	
+	}	
+	if(lista->prox){
+		aux = lista->prox;
+
+		maior1= aux->jtyg;
+		strcpy(bsez,aux->sqvx);
+		
+		aux= aux->prox;
+
+		strcpy(iceu,aux->sqvx);
+		maior2= aux->jtyg;
+
+		expAdriaMenezes1 = (maior1 < maior2);
+		if(expAdriaMenezes1 == 1){
+			auxi = maior1;
+			strcpy(auxs,bsez);
+			maior1 = maior2;
+			strcpy(bsez,iceu);
+			maior2 = auxi;
+			strcpy(iceu,auxs);
+		}
+
+		aux= aux->prox;		
+
+		if(!(!aux)) {
+			while(aux){
+				maior3= aux->jtyg;
+				strcpy(def3,aux->sqvx);
+	
+				if(maior3 > maior2){
+					if(maior3 > maior1){
+			auxi = maior1;
+			strcpy(auxs,bsez);
+			maior1 = maior2;
+			strcpy(bsez,iceu);
+			maior2 = auxi;
+			strcpy(iceu,auxs);
+		}else{
+			maior2 = maior3;
+			strcpy(iceu,def3);
+					}
+				}
+				maior3=0;
+				aux=aux->prox;
+			}
+			printdef(maior1,bsez,maior2,iceu);
+		}else{
+			printdef(maior1,bsez,maior2,iceu);
+		}
+	}
+}
+
+tipoCod *criarlista(){
+	tipoCod *lista; 
+	lista = (tipoCod *)malloc(sizeof(tipoCod));
+	lista->prox = NULL;
+	
+	return lista;
+}
+
+void printdef(int maior1, char *bsez, int maior2, char *iceu){
+	printf("Defeito 1: %s (%d)\n",bsez,maior1);
+	printf("Defeito 2: %s (%d)\n",iceu,maior2);	
+}
+
+void printlista(tipoCod *L){
+	
+	tipoCod *cam= L->prox;
+
+	for (;(cam != NULL);){
+		printf("[%s] [%s] [%s] [%d]\n",cam->sqvx, cam->trew, cam->vdtf, cam->jtyg);
+		cam = cam -> prox;		
+	}
+}
+
+void enfileira(tipoCod *lista,char *sqvx){
+	tipoCod *codigo, *aux;
+	codigo = (tipoCod *)malloc(sizeof(tipoCod));
+
+	strcpy(codigo->sqvx,sqvx);
+	scanf("%s",codigo->trew);
+	scanf("%s",codigo->vdtf);
+	scanf("%d",&codigo->jtyg);
+
+	if (!lista->prox){
+		codigo->prox = NULL;   
+		lista->prox = codigo;
+		return;
+	}
+
+	aux = lista;
+
+	if(strcmp(codigo->sqvx,aux->prox->sqvx) == 0){
+		aux->prox->jtyg = codigo->jtyg + aux->prox->jtyg;
+		return;
+	}
+
+	aux = lista->prox;
+
+	for(;(aux->prox);){
+		if(!(strcmp(codigo->sqvx,aux->prox->sqvx) == 0)){
+			aux=aux->prox;			
+		}else
+			aux->prox->jtyg = codigo->jtyg + aux->prox->jtyg;
+			return;
+
+	}
+
+	aux->prox = codigo;
+	codigo->prox = NULL;  
+}
+

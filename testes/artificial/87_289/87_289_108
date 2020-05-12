@@ -1,0 +1,64 @@
+/*Leia a dimensão de um array unidimensional de inteiros (entre 1 e 1000) e, em seguida, leia os dados do vetor. Considere que esses dados são todos diferentes de zero. Em seguida, leia um número inteiro a ser buscado no vetor. Enquanto esse número for diferente de zero, utilizando o algoritmo de Busca Binária, verifique se este número está presente ou não no vetor. Se sim, a resposta deve ser "SIM" (sem as aspas), caso contrário a resposta deve ser "NAO" (também sem as aspas). Use alocação DINÂMICA para armazenar o vetor. Os dados no vetor DEVEM ficar ordenados. A ordenação deve ser feita SOMENTE no final da inserção de todos os elementos. Antes de fazer a busca, o vetor ordenado deve ser impresso. */
+
+#include<stdio.h>
+#include<stdlib.h>
+
+int procurar(int *vet, int prc, int tam){
+
+
+   int meio, ini=0, fim=tam-1;
+
+   while(ini<=fim){
+    
+    meio=(fim+ini)/2;
+    if(prc==vet[meio]) return meio;
+    if(prc<vet[meio]) fim=meio-1;
+    else ini=meio+1;
+ 
+  }//end while
+
+  return meio;
+
+}
+
+void main(void){
+ 
+  int n, i, j, esc, prc, res;
+
+  scanf("%d", &n);
+   
+  int *vet=(int *)malloc(n*sizeof(int));
+ 
+  for(i=0; i<n; i++)
+   scanf("%d", &vet[i]);
+
+  for(i=1; i<n; i++){
+     esc=vet[i];
+     j=i-1;
+     while(esc<vet[j]&&j>=0){
+         vet[j+1]=vet[j];
+          j--;
+      }//end while
+
+     vet[j+1]=esc;
+  }//end for
+
+  for(i=0; i<n; i++)  printf("%d ", vet[i]);
+  printf("\n");
+
+  scanf("%d", &prc);
+
+
+  while(prc!=0){
+     
+     res=procurar(vet,prc,n);
+
+     if(vet[res]==prc)  printf("SIM\n");
+
+     else printf("NAO\n");
+  
+     scanf("%d", &prc);
+
+  }//end while
+
+}//end main

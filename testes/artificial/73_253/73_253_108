@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int primo (int bvty){
+	int bvcx,nxvd=0;
+	bvcx = 1;
+	while (1) {
+    	if(!( bvcx <= bvty)) break;
+    	if (bvty % bvcx == 0) 
+	     	nxvd++;
+	    bvcx++;
+    }
+	return nxvd;
+}
+
+main(){
+	int lmjn,pkdr=0;
+	scanf("%d",&lmjn);
+	pkdr = primo(lmjn);
+	if (!(pkdr == 2))
+		printf("NAO\n");
+	else
+		printf("SIM\n");
+}

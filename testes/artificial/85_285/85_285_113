@@ -1,0 +1,34 @@
+#include "stdio.h"
+
+int main(){
+	int n, i, numvet, flag=0;
+
+	scanf("%d", &n);
+	
+	int vetor[n];
+
+	while((n>0)&&(n<1000)){
+
+	for(i=0;i<n;i++){
+		scanf("%d", &vetor[i]);
+	}
+
+	scanf("%d", &numvet);
+	
+	for(i=0;i<n;i++){
+		if(numvet==vetor[i]){
+			printf("SIM\n");
+			flag++;
+		}
+	}
+
+	if(flag==0){
+		printf("NAO\n");
+			
+	}		
+	
+	scanf("%d", &n);
+	flag=0; 
+	}
+}
+

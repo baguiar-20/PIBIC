@@ -1,0 +1,65 @@
+/*
+	 * UNIVERSIDADE FEDERAL DO AMAZONAS
+	 * Disciplina: Alg. Estr. Dados (AEDI)
+	 * Programa:   Campo minado
+	 * Objetivo:   Simular o jogo campo minado
+	 * Aluna: Luciene Oliveira da Silva
+*/
+
+#include"stdio.h"
+#define MAXDIM 20
+
+int linhas, colunas;
+
+int Jogo(char campo[MAXDIM][MAXDIM]);
+
+int main(void){
+	int quantidade_de_minas, verificador, x, y;
+	char campo[MAXDIM][MAXDIM];
+	
+	scanf("%d", &linhas);
+	colunas = linhas;
+	
+	//minas em campo
+	for(x = 0; x < linhas; x++){
+		for(y = 0; y < colunas; y++){
+			scanf(" %c",&campo[x][y]);
+		}
+	}
+    
+	verificador = Jogo(campo);
+	return 0;
+}
+
+int Jogo(char campo[MAXDIM][MAXDIM])
+{
+	int x = 0, y = 0, cont, auxcampo[MAXDIM][MAXDIM];
+	
+	for(x = 0; x < linhas; x++){
+		for(y = 0; y < colunas; y++){
+			cont = 0;
+			if(campo[x][y] == '1'){
+                auxcampo[x][y] = '*';
+		    }
+		    else{
+                if((x > 0) && (y > 0) && (campo[x - 1][y - 1] == '1')) cont++;
+			    if(campo[x + 1][y + 1] == '1') cont++;
+				if((x > 0) && (campo[x - 1][y + 1] == '1')) cont++;
+				if((y > 0) && (campo[x + 1][y - 1] == '1')) cont++;
+				if((x > 0)&& (campo[x - 1][y] == '1') )cont++;
+				if(campo[x + 1][y] == '1') cont++;
+				if(campo[x][y + 1] == '1') cont++;
+				if((y > 0) && (campo[x][y - 1] == '1')) cont++;
+				auxcampo[x][y] = cont+48;
+			}
+	    }
+	}
+	for(x = 0; x < linhas; x++){
+		for(y = 0; y < colunas; y++){
+			printf("%c  ", auxcampo[x][y]);
+			if(y == colunas - 1) printf("\n");
+		}
+	}
+    //system("PAUSE");
+    return 0;
+}

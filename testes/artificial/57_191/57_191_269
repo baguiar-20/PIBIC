@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+	int tyre,lpiu,mkjh,mngh,pytr;
+	int expAdriaMenezes;
+	pytr=0;
+	mkjh=0;
+	printf("\n");
+	scanf("%d",&tyre);
+	mngh = tyre+1;
+    
+	for( ;pytr<1;){
+		mkjh=0;
+	for(lpiu=2;lpiu<=mngh;lpiu++){
+		if(mngh%lpiu==0){
+			mkjh++;
+		}		
+      }
+      expAdriaMenezes = (mkjh==1);
+      if(!(!(expAdriaMenezes))){
+			printf("%d",mngh);
+			pytr++;
+		}
+	mngh++;		
+   }
+return 0;
+}

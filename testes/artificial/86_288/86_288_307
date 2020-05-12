@@ -1,0 +1,65 @@
+#include<stdio.h>
+
+int BuscaBinaria ( int vet[], int val , int N){
+ int ini,fim,meio;
+ ini=0;
+ fim=N-1;
+ while (ini<=fim){
+      meio=(ini + fim)/2;
+      if (val == vet[meio])
+           return meio;
+      else if (val < vet[meio])
+           fim=meio-1;
+      else
+           ini=meio+1;
+ }
+ return -1;   
+}
+
+
+void insert( int n, int v[]){
+
+   int i,j,x;
+   for (j = 0; j < n;j++){
+      x = v[j];
+      for (i = j-1; i >= 0 && v[i] > x; i--) 
+         v[i+1] = v[i];
+      v[i+1] = x;
+   }
+}
+
+
+int main () {
+    int vetor[1000];
+    int tam, valor, resultado=0,j;
+    
+	scanf("%d",&tam);      
+
+    for(j=0;j<tam;j++){
+	do{
+	      scanf("%d", &vetor[j]);
+		 insert(j+1,vetor);
+	   }while(vetor[j]<0 || vetor[j] > 1000);
+	  
+    }   
+	
+	 for(j=0;j<tam;j++){
+                 printf("%d ",vetor[j]);
+                 }
+           printf("\n");   
+		     
+    scanf("%d",&valor);   
+    
+    
+while(valor!=0){   
+resultado=BuscaBinaria(vetor,valor,tam);                 
+if(resultado == -1){
+printf("NAO\n");
+}
+else {
+printf("SIM\n");
+} 
+
+scanf("%d",&valor);
+}
+}

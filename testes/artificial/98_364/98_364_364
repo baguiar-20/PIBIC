@@ -1,0 +1,37 @@
+#include <stdio.h> 
+int main(){
+  int i=0, k, ord=1, sair=0, tam, n;
+  int vetor[100];
+  
+  printf("Numeros: ");
+  while (scanf("%d", &n) == 1) {
+  vetor[i] = n;
+  i++;
+  }
+  getchar();
+  i--;
+  
+while(i!=(-1)){
+  ord=1;
+  for(k=1; k<=i;k++){
+    if(vetor[k]<vetor[k-1]){
+      ord=0;
+      break;
+    }
+  }
+  
+  if(ord==1){
+    printf("Ordenado.\n");
+  }else{
+    printf("Desordenado.\n");
+  }
+  i=0;
+  printf("Numeros: ");
+  while (scanf("%d", &n) == 1) {
+  vetor[i] = n;
+  i++;
+  }
+  getchar(); 
+  i--;
+ }
+}

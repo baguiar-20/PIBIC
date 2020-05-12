@@ -1,0 +1,50 @@
+/*
+				LABORATORIO DE PROGRAMAÇÃO B -
+		- Aluno: Marivaldo Rodrigues  -  Turma 02   -   Matricula: 21351819 -
+				Atividade de 14 de novembro de 2013
+	  #################################################################################################################
+		2.Repita a construção do programa para a mesma especificação da questão anterior, só que agora considerando que a alocação deve ser feita de forma dinâmica (com ponteiros).
+		Dicas:
+
+		Entrada
+		10
+		275 43 32 9 12 57 103 321 1 54
+		532
+		15
+		25 433 3 18 311 56 43 31 14 44 167 765 10 49 33
+		49
+		0
+
+		Saída
+		NAO
+		SIM 
+	 #################################################################################################################	
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int busca(int dimensao){
+	int i, num, valor;
+	int *vetor=malloc(sizeof(int)*dimensao);
+		for(i=0;i<= dimensao-1;i++){
+			scanf ("%d", &num);
+			vetor[i]=num;
+		}
+	scanf ("%d", &valor);
+	for(i=0;i<=dimensao-1;i++){
+		if(vetor[i]==valor)	return 1;
+	}
+	return -1;
+}
+int main () {
+	int dimens, retorno;
+	scanf ("%d", &dimens);
+	while (dimens != 0){
+		retorno=busca(dimens);
+		if (retorno > 0) printf("SIM\n");
+		else printf ("NAO\n");
+		scanf ("%d", &dimens);
+	}
+}

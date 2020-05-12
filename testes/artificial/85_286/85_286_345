@@ -1,0 +1,81 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+	
+	int tamanhoVet, valor, i=0, flag=0;
+	
+	
+	int *vet;
+	int n=1;
+
+		while(n>0){
+	
+			//printf("insira o tamanho do vetor, 0 para parar\n\n");
+			scanf("%d", &n);
+			
+			if(n==0) break;
+			
+			vet = (int*) malloc(n*sizeof(int));
+			
+			
+			for(i=0;i<n;i++){
+				scanf("%d", &vet[i]);
+			} 
+			
+			//printf("insira o valor\n\n");
+			scanf("%d", &valor);
+				
+			for(i=0;i<n;i++){
+				if(valor==vet[i]){
+					flag=1;
+				}
+			}		
+			
+			if(flag==1) printf("SIM\n");
+			else printf ("NAO\n");
+
+			flag=0;
+
+	}
+
+		free(vet);		
+
+		return 0;
+		}
+	
+	
+	
+	
+	
+	
+	
+	//while(tamanhoVet>0){
+			
+			//printf("insira o tamanho do vetor, 0 para parar \n\n");
+			
+			//scanf("%d", &tamanhoVet);
+			//int vet[tamanhoVet];
+			
+			//if (tamanhoVet==0) break;
+			
+			//for(i=0;i<tamanhoVet;i++){
+				//scanf("%d", &vet[i]);
+			//} 
+			
+			//printf("insira o valor\n\n");
+			//scanf("%d", &valor);
+				
+			//for(i=0;i<tamanhoVet;i++){
+				//if(valor==vet[i]){
+					//flag=1;
+				//}
+			//}		
+			
+			//if(flag==1) printf("sim\n\n");
+			//else printf ("nao\n\n");
+	//}
+	
+	
+//}

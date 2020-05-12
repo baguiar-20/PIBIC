@@ -1,0 +1,19 @@
+#include "stdio.h"
+int main(){
+	int vetor[15];
+	int x, var, i;
+	for(i=0;i<15;i++){
+		scanf("%d", &var);
+		vetor[i]=var;
+	}
+	scanf("%d", &x);
+	if(var>=15)
+		printf("NAO\n");
+	for(i=0;i<15;i++){
+		if(vetor[i]==x){
+			i++;			
+			printf("%d\n", i);
+			break;
+		}
+	}
+}

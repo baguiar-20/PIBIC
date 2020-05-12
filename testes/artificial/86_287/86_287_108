@@ -1,0 +1,44 @@
+/*Leia a dimensão de um array unidimensional de inteiros (entre 1 e 1000) e, em seguida, leia os dados do vetor. Considere que esses dados são todos diferentes de zero. Em seguida, leia um número inteiro a ser buscado no vetor. Enquanto esse número for diferente de zero, utilizando o algoritmo de Busca Binária, verifique se este número está presente ou não no vetor. Se sim, a resposta deve ser "SIM" (sem as aspas), caso contrário a resposta deve ser "NAO" (também sem as aspas). Use alocação ESTÁTICA para armazenar o vetor. Os dados no vetor DEVEM ficar ordenados. A ordenação deve ser feita SOMENTE no final da inserção de todos os elementos. Antes de fazer a busca, o vetor ordenado deve ser impresso. */
+
+#include<stdio.h>
+
+void main(void){
+  
+
+ int n, aux, i, j;
+ scanf("%i", &n);
+ 
+ int array[n];
+
+//armazenaçao estática
+ for(i=0; i<n; i++){
+  scanf("%d", &array[i]); 
+ }//end for
+
+//ordenar
+ for(i=0; i<n-1; i++){
+   for(j=i+1; j<n; j++){
+       if(array[i]>array[j]){
+          aux=array[i];
+          array[i]=array[j];
+          array[j]=aux;
+        }}}
+
+
+//imprimir array ordenado
+ for(i=0; i<n; i++){
+  printf("%d ",array[i]); 
+ }printf("\n");//end for
+
+ int prc;
+ scanf("%d", &prc);
+
+ while(prc!=0){
+   for(i=0; i<n&&array[i]!=prc; i++){}
+  if(array[i]==prc) printf("SIM\n");
+  else printf("NAO\n");
+ scanf("%d", &prc);
+}// end while
+
+
+}//end main

@@ -1,0 +1,84 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+void selectSort(int *vetor ,int tam)
+{
+     int i, j, menor, aux;
+
+    for (i = 0; i < (tam-1); i++)
+    {
+        menor = i;
+        for (j = (i+1); j < tam; j++)
+        {
+              if(vetor[j] < vetor[menor])
+              {
+                menor = j;
+              }
+        }
+        if (i != menor)
+        {
+               aux = vetor[i];
+              vetor[i] = vetor[menor];
+              vetor[menor] =  aux;
+        }
+        for(j=0;j<tam;j++)
+    {
+        printf("%d ",vetor[j]);
+    }
+    printf("\n");
+    }
+}
+
+
+
+
+void main(){
+
+	int *vet;
+	int j,tamanho;
+
+
+	scanf("%d",&tamanho);
+
+	while(tamanho!=0)
+	{
+		
+		vet= (int*) malloc (tamanho*sizeof(int));
+		if (vet == NULL)
+		{
+			printf ("Sem memoria\n");
+			exit(1);
+
+		}		 
+		
+			for(j=0;j<tamanho;j++){
+    	do{
+    	        
+                 scanf("%d",&vet[j]);
+                 
+        }while(vet[j]<0 || vet[j]>1000);
+	
+	}
+		
+	  if(tamanho>1){  
+		
+		selectSort(vet,tamanho); 
+	}else{
+	         for(j=0;j<tamanho;j++)
+	   		{
+	 		printf("%d",vet[j]);	 	 	 
+	   		}
+	 
+			printf("\n");	
+	}
+		 
+		free(vet);
+		
+		scanf("%d",&tamanho);	
+		
+	
+	}
+	
+	
+		
+}

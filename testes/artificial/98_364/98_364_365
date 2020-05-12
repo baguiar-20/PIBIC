@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+
+    int vet[100];
+    int i, j, leu;
+    char aux;
+    do{
+        leu = i = j = 0;
+        printf("Numeros: ");
+        while(scanf("%d",&vet[i]) == 1){
+            i++;
+            leu = 1;
+        }
+        //fflush(stdin);
+        i--;
+        while(j < i && vet[j] < vet[j+1])
+            j++;
+        if(j == i)
+            printf("Ordenado.\n");
+        else if(i > 0)
+            printf("Desordenado.\n");
+        scanf("%c", &aux);
+    }while(leu == 1);
+    printf("\n");
+    return 0;
+}

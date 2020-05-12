@@ -1,0 +1,85 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int*	selectionSort (int *vetor, int dim);
+void	imprime (int *vetor, int dim);
+
+int main () {
+
+	int *vetor;
+	int i, valor, dim=1;
+
+
+	while (dim!=0) {
+
+	scanf ("%d", &dim);
+	
+		if (dim==0) {
+
+			break;
+		
+		}
+
+	vetor=(int*) malloc (dim * sizeof (int));
+	
+		for (i=0; i<dim; i++) {
+
+			scanf ("%d", &vetor[i]);
+			
+			}
+
+		
+		selectionSort (vetor, dim);			
+
+		
+	free (vetor);
+
+
+
+		}
+
+	return 0;
+}
+	
+
+int* selectionSort (int *vetor, int dim)  { 
+  int i, j, min, aux, z;
+
+
+	if (dim==1) {
+
+	for (z=0; z<dim; z++) {
+	printf ("%d ", vetor[z]);   
+
+	printf ("\n");
+	
+	 	}
+	}
+
+	
+  for (i=0; i<dim-1; i++)  {
+    min=i;
+    for (j=i+1; j<dim; j++) {
+      if(vetor[j]<vetor[min]) {
+        min=j;
+
+      }
+    }
+  
+      aux=vetor[i];
+      vetor[i]=vetor[min];
+      vetor[min]=aux;
+
+	for (z=0; z<dim; z++) {
+	printf ("%d ", vetor[z]);   
+
+	 	}
+
+	printf ("\n");
+		
+			}
+	
+		
+
+	return 0;
+}

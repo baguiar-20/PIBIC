@@ -1,0 +1,21 @@
+﻿#include <stdio.h>
+#include <string.h>
+
+int main() {
+	char kjhd[100];
+	int pytr;
+	
+	printf("Nome: ");
+	fgets(kjhd, 100, stdin);
+	
+	printf("Inverso: ");
+	pytr=strlen(kjhd)-2;
+	while (1) {
+		if (!(pytr!=-1)) break;
+		printf("%c",kjhd[pytr]);
+		pytr--;
+	}
+
+	printf("\n");
+	return 0;	
+}

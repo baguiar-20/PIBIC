@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+  
+int verifica (int *veto, int temp,int temp1 ) {
+    int i ;  
+    for (i=0;i<temp1;i++){
+        if (temp == veto[i])
+            return 1;
+    }
+    return 0;
+}
+  
+int main (){
+    int n,i,x,flag = 0;
+    scanf("%d",&n);
+    while (n != 0) {
+    int vet[n];
+    for(i=0;i<n;i++)
+        scanf ("%d",&vet[i]);
+    scanf("%d",&x);
+    flag = verifica (vet, x,n);
+    if (flag ==  0)
+        printf("NAO\n");
+    else
+        printf ("SIM\n");
+    scanf("%d",&n);
+ 
+    }
+    return 0;
+}

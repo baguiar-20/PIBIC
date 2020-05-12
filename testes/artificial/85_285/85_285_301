@@ -1,0 +1,51 @@
+#include<stdio.h>
+#define tamanho 1000
+
+int buscar(int tam, int vet[], int pos) {
+int i;
+for (i = 0; i < tam; i++) {
+if (vet[i] == pos) {
+return i;
+}
+}
+
+return -1;
+}
+
+int main () {
+    int vetor[tamanho];
+    int n, valor, resultado,j;
+    
+    
+
+scanf("%d",&n);
+
+while(n>0) {
+
+
+for(j=0;j<n;j++){
+                 scanf("%d",&vetor[j]);
+                 }
+
+
+scanf("%d",&valor);
+
+resultado=buscar(n,vetor,valor);
+
+if(resultado == -1){
+printf("NAO \n");
+}
+else {
+printf("SIM \n");
+}
+
+scanf("%d",&n);
+
+}
+               }
+
+
+
+
+
+

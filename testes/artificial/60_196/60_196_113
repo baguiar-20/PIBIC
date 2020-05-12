@@ -1,0 +1,54 @@
+#include "stdio.h"
+int i, j, tam; 
+void mostraminado(char campominado[20][20]){
+		for(i=0;i<tam;i++){
+			for(j=0;j<tam;j++){
+			if(campominado[i][j]=='*'){
+					printf("%c ", campominado[i][j]);
+			}
+			else{
+				printf("%d ", campominado[i][j]);
+			}
+		}	
+		printf("\n");
+	}
+}
+int main (){
+	char  campominado[20][20];
+	int var;
+		 scanf("%d", &tam);
+	
+	for(i=0;i<tam;i++){
+		for(j=0;j<tam;j++){
+			scanf("%d", &var); //1=mina, 0=ausencia
+			campominado[i][j]=var;
+			
+		}	
+	}
+
+	for(i=0;i<tam;i++){
+		for(j=0;j<tam;j++){
+			if(campominado[i][j]==1){
+				campominado[i][j]='*';
+			}
+		}
+	}
+	for(i=0;i<tam;i++){
+		for(j=0;j<tam;j++){
+			
+			if(campominado[i][j]=='*'){               //comparando as adjacencias para alterar o valor se existe uma mina.
+			
+			if(campominado[i-1][j-1]!='*')	campominado[i-1][j-1] = campominado[i-1][j-1]+1;
+			if(campominado[i][j-1]!='*') 	campominado[i][j-1]   = campominado[i][j-1]+1;
+			if(campominado[i+1][j-1]!='*')	campominado[i+1][j-1] = campominado[i+1][j-1]+1;
+			if(campominado[i+1][j]!='*') 	campominado[i+1][j]   = campominado[i+1][j]+1;
+			if(campominado[i+1][j+1]!='*')	campominado[i+1][j+1] = campominado[i+1][j+1]+1;
+			if(campominado[i][j+1]!='*') 	campominado[i][j+1]   = campominado[i][j+1]+1;
+			if(campominado[i-1][j+1]!='*')	campominado[i-1][j+1] = campominado[i-1][j+1]+1;
+			if(campominado[i-1][j]!='*')	    campominado[i-1][j]   = campominado[i-1][j]+1;
+			}
+		}
+	}
+	mostraminado(campominado);
+}
+

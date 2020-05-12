@@ -1,0 +1,126 @@
+#include <stdio.h>
+#include <stdlib.h> 
+#include <string.h>
+
+#define MAX_SEQUENCE_SIZE 1000
+
+int checksequence(char wbhc[])
+
+{
+
+int  cyxz,fvxc,hgsb;
+
+fvxc=0;
+hgsb=0;
+
+	cyxz = 0;
+	while (1) {
+		if(!( wbhc[cyxz] != '\0')) break;
+		if(!(wbhc[cyxz]=='+'||wbhc[cyxz]=='-'||wbhc[cyxz]=='*'||wbhc[cyxz]=='/'))
+		hgsb++;
+		else
+		fvxc++;
+		++cyxz;
+	}
+
+
+
+
+
+return (hgsb == fvxc + 1) && (checksequence2(wbhc)==1);
+
+}
+
+
+int checksequence2(char wbhc[])
+
+{
+
+char *stack; int t;
+
+int  n,cyxz;
+
+n = strlen (wbhc);
+
+stack = malloc (n * sizeof (char));
+
+t = 0;
+
+cyxz = 0;
+while (1) {
+
+
+if(!( wbhc[cyxz] != '\0')) break;
+switch (wbhc[cyxz]) {
+
+case ')': if (t != 0 && stack[t-1] == '(')
+
+--t;
+
+else {
+free(stack);
+return 0;}
+
+break;
+
+case ']': if (t != 0 && stack[t-1] == '[')
+
+--t;
+
+else {
+free(stack);
+return 0;
+}
+
+break;
+
+default: 
+if(wbhc[cyxz]=='('||wbhc[cyxz]==')'||wbhc[cyxz]=='['||wbhc[cyxz]==']'){
+stack[t++] = wbhc[cyxz];
+}
+}
+++cyxz;
+
+}
+
+free(stack);
+return t == 0;
+
+}
+
+
+
+
+
+
+int main(){
+
+	char vevu[] = "END";
+	char wbhc[MAX_SEQUENCE_SIZE];
+	int expAdriaMenezes;
+
+
+
+	while(strcmp(wbhc,vevu)!=0){
+
+	scanf("%s",wbhc);
+
+	expAdriaMenezes = (strcmp(wbhc,vevu)==0);
+	if(!(!expAdriaMenezes)){
+		break;		
+	}
+
+		
+	if(!(checksequence(wbhc)==1)){
+		printf("NAO\n");		
+	}else{
+		printf("SIM\n");		
+
+		}
+
+	
+
+   }
+
+return 0;
+}

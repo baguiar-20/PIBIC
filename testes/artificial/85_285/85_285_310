@@ -1,0 +1,33 @@
+# include <stdio.h>
+
+short int busca_sequencial(int num, int vet[], int z){
+	int i;	
+	for(i=1;i<=z;i++){
+		if(vet[i] == num){
+			return 1;		
+		}
+	}
+	return 0;
+}
+
+int main(){
+	int num, z, tam, vet[100];
+	for(;;){	
+		scanf("%d", &tam);	
+		if(tam == 0){
+			return 1;	
+		}		
+		for(z=1;z<=tam;z++){
+			scanf("%d", &vet[z]);
+		}
+		scanf("%d", &num);
+		if(busca_sequencial(num, vet, tam) == 1){		
+			printf("SIM");			
+		}else{
+			printf("NAO");
+		}
+		printf("\n");
+	}
+	return 0;
+}
+

@@ -1,0 +1,44 @@
+/* Elabore um programa que tenha como entrada um conjunto de inteiros separados por espaço e finalizado pelo caractere 'F', coloque-os em um vetor, inverta o vetor e imprima-o.
+
+Exemplo de Entrada (em negrito) e Saída
+
+Numeros: 3 14 15 92 65 35 F
+Inverso: 35 65 92 15 14 3
+Dicas:
+
+Como ler uma lista de inteiros até a letra 'F'?
+Vá lendo um inteiro por vez até o scanf retornar erro por não conseguir ler o "número" 'F':
+
+int i = 0;
+while (scanf("%d", &num_atual) == 1) {
+  vetor[i] = num_atual;
+  i++;
+}
+getchar(); // Ignora o caractere 'F'
+*/
+
+#include <stdio.h>
+#include <string.h>
+
+#define TAM 100
+
+int main (int argc, char *argv[]){
+
+  int vet[TAM], n, i=0;
+
+  printf("Numeros: ");  
+  while (scanf("%d", &n) == 1) {
+    vet[i] = n;
+    i++;
+  }
+  getchar();
+
+  printf("Inverso:");
+  for(i=i-1; i>=0; i--){
+    printf(" %d", vet[i]);
+  }
+  printf("\n");
+
+  return 0;
+
+}

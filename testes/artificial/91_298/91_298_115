@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int selec(int tam, int vet[tam]);
+
+main(){
+	int tam,i;
+
+	scanf("%d", &tam);
+
+	int *vet;
+
+	while(tam>0){
+		vet = (int*)malloc(tam*sizeof(int));
+	
+		for(i=0;i<tam;i++)
+			scanf("%d", &vet[i]);
+			
+		selecsort(tam,vet);
+
+		free(vet);
+		scanf("%d", &tam);
+	}
+}
+int selecsort(int tam, int vet[tam]){		
+	int i,j,aux=0,h,x;
+
+	if(tam==1){
+		for(h=0;h<tam;h++)
+			printf("%d ",vet[h]);
+		printf("\n");
+	}
+	for(i=0;i<tam-1;i++){
+		x=i;
+		for(j=i+1;j < tam;j++){			
+			if(vet[j] <= vet[x]){
+				x=j;				
+			}
+		}	
+		aux= vet[i];
+		vet[i]= vet[x];
+		vet[x]= aux;
+
+		for(h=0;h<tam;h++)
+			printf("%d ",vet[h]);
+		printf("\n");
+	}			
+	return vet[tam];
+}

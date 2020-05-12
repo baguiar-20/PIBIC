@@ -1,0 +1,80 @@
+#include <stdio.h>
+
+void InsertionSort(int *vet, int dim);
+int PesquisaBinaria ( int *vet, int x , int dim);
+
+int main(void){
+	int dim, i, x, y, j=1;
+	int vet[1000], aux[1000];
+	//Informe a dimensao do vetor
+	scanf("%d", &dim);
+
+	//Insira os valores do vetor
+	for(i=0; i<dim; i++){
+		scanf("%d", &vet[i]);
+		InsertionSort(vet, j);
+		j++;
+	};
+	
+	//valor a ser encontrado
+	scanf("%d", &x);
+	j=0;
+	i=0;
+	
+	while(x != 0){
+	//buscando valor
+		y = PesquisaBinaria(vet, x, dim);
+		if(y != -1){
+			aux[i] = 0;
+			i++;
+			j++;
+			scanf("%d", &x);
+		}else{
+			aux[i] = -1;
+			i++;
+			j++;
+			scanf("%d", &x);
+		}
+	}
+	//imprimindo vetor ordenado e respostas
+	for(i=0; i<dim; i++){
+		printf("%d  ", vet[i]);
+	}
+	for(i=0;i<j;i++){
+	if(aux[i] == 0)
+		printf("\nSIM");
+	else
+		printf("\nNAO");
+		
+	}
+}
+
+void InsertionSort(int *vet, int dim){
+	int i, j, aux;
+	for(i = 1; i < dim; i++){
+		j = i;
+		while((j != 0) && (vet[j] < vet[j - 1])){
+			aux = vet[j];
+			vet[j] = vet[j - 1];
+			vet[j - 1] = aux;
+			j--;
+		}
+	}
+}
+
+int PesquisaBinaria ( int *vet, int x , int dim){
+    int inf = 0; 
+    int sup = dim-1;
+    int meio;
+   
+   while (inf <= sup){
+		meio = inf + (sup-inf)/2;
+        if (x == vet[meio])
+			return meio;
+		else if (x < vet[meio])
+			sup = meio-1;
+        else
+            inf = meio+1;
+     }
+    return -1;   // não encontrado
+}

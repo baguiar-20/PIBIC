@@ -1,0 +1,49 @@
+#include <stdio.h>
+
+int main(void){
+	
+	int vet[1000],dim,num,i,flag;
+	
+	do{
+	
+		dim=i=flag=0;
+		
+		scanf("%d",&dim);
+		
+		if(dim){
+			
+			for(i=0;i<dim;i++){
+				
+				scanf("%d",&vet[i]);
+				
+			}
+			
+			scanf("%d",&num);
+			
+			for(i=0;i<dim;i++){
+				
+				if(vet[i]==num){
+					
+					flag++;
+					
+				}
+				
+			}
+			
+			if(flag){
+				
+				printf("SIM\n");
+				
+			}else{
+				
+				printf("NAO\n");
+				
+			}
+			
+		}
+		
+	}while(dim);
+	
+	return 0;
+	
+}

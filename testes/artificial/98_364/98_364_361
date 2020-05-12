@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+int main(){
+
+	int check, a, i, j, k, vet[100];
+
+	
+	do{
+		i = 0;			
+				
+		printf("Numeros: ");
+		while(scanf("%d", &a)==1){
+			vet[i] = a;
+			i++;
+
+		}
+		getchar();
+
+		if (i == 0) exit (0);
+		
+		check = 0;		
+		for(j = 0 ;j< i-1;j++){
+			(vet[j]>vet[j+1])? (check=1) : check;
+		}
+				
+		(check == 1)? printf("Desordenado.\n"):printf("Ordenado.\n");
+		
+	
+	}while(1);
+
+
+}

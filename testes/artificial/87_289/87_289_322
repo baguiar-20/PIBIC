@@ -1,0 +1,106 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int* insertion (int *vetor, int dim);
+int busca (int *vetor, int num, int dim);
+
+int main () {
+
+	int *vetor, i;
+	int dim, num=-90000000;
+	int buska;
+
+	scanf ("%d", &dim);
+
+	vetor=(int*) malloc (dim*sizeof (int));
+
+	
+	for (i=0; i<dim; i++) {
+				
+		scanf ("%d", &vetor[i]);
+		
+			}
+
+		insertion (vetor, dim);
+		
+		for (i=0; i<dim; i++) {
+
+			printf ("%d ", vetor[i]);
+
+					}
+			printf ("\n");
+
+
+	while (num!=0) {
+		
+		scanf ("%d", &num);
+		
+		if (num==0) {
+			
+			return 0;
+		}
+
+		busca (vetor, num, dim);
+
+		}
+		
+		free (vetor);
+}
+
+ 	int* insertion (int *vetor, int dim) {
+		
+		int aux, i, j;
+
+		for (i=1; i<dim; i++) {
+
+			j=i;
+
+				while (vetor[j]<vetor[j-1]) {
+
+					aux=vetor[j];
+					vetor[j]=vetor[j-1];
+					vetor[j-1]=aux;
+					j--;
+
+					if (j==0) {
+						break;
+						}
+					}
+	
+				}
+
+		return vetor;			
+
+		}
+
+	int busca (int *vetor, int num, int dim) {
+
+			int ini, meio, fim;
+	
+			ini=0;
+			fim=dim-1;
+			
+			while (ini<=fim) { 
+ 
+		     meio=(ini+fim)/2;
+ 
+	        if (vetor[meio]==num) {
+
+					printf ("SIM\n");
+					return 0;
+					}
+
+      	  if (vetor[meio]<num) {
+
+						ini=meio+1;
+					}
+
+      	  if(vetor[meio]>num) {
+		
+					   fim=meio-1;
+ 				  }
+              
+			}
+					printf ("NAO\n");
+	
+}

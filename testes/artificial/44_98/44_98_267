@@ -1,0 +1,12 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+	int ffhj;
+	scanf("%d", &ffhj);
+	int pjhg[ffhj][ffhj];	
+	int xbnc, gfds;
+	for (xbnc=0; xbnc<ffhj; xbnc ++) for (gfds=0;gfds<ffhj; gfds++) scanf("%d", &pjhg[xbnc][gfds]);		
+	for (xbnc=0; xbnc<ffhj; xbnc ++) for (gfds=0;gfds<ffhj; gfds++) if (xbnc==gfds) printf("%d ", pjhg[xbnc][gfds]);		
+return 0;
+}

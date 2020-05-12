@@ -1,0 +1,13 @@
+#include <stdio.h>
+int main (){
+int trde,uytg,vgfv;
+	do{
+	scanf ("%d",&vgfv);
+	}while (vgfv<0);
+	trde=1;
+	for(uytg=1;uytg<=vgfv;uytg++){
+		trde=trde*uytg;
+	}
+	printf ("%d",trde);
+	return 0;
+} 

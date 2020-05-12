@@ -1,0 +1,56 @@
+/*
+
+Elabore um programa que tenha como entrada um conjunto de inteiros separados por espaço e finalizado pelo caractere 'F', coloque-os em um vetor (máx. 100), e diga se o vetor está ordenado ou não. Faça isso para diversos conjuntos de inteiros, até que o conjunto não tenha nenhum número mas apenas o caractere 'F'.
+
+Exemplo de Entrada (em negrito) e Saída
+
+Numeros: 3 7 10 18 25 30 80 F  
+Ordenado.
+Numeros: 3 14 15 92 65 35 F
+Desordenado.
+Numeros: 2 4 8 16 32 64 128 256 512 1024 F
+Ordenado.
+Numeros: F
+
+*/
+
+
+#include <stdio.h>
+
+int main() {
+    
+    int num_atual = 0;
+    int j, i=5;
+    int vetor[100];
+    int ordenado = 1;
+    
+    
+    while (1) {
+    
+        printf("Numeros: ");
+    
+        i = 0;
+        while (scanf("%d", &num_atual) == 1) {
+            vetor[i] = num_atual;
+            i++;
+        }
+        getchar();
+    
+        if (i==0) return;
+	
+	ordenado = 1;
+	for (j=0; j<i-1; j++) {
+	   if (vetor[j] > vetor[j+1]) {
+	       ordenado = 0;
+	       break;
+	   }
+	}
+        if (ordenado) printf("Ordenado.\n"); else printf("Desordenado.\n");
+	
+	
+    }
+    
+    
+    return 0;
+    
+}

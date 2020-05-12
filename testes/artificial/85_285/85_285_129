@@ -1,0 +1,46 @@
+/* Exercícios - 14/11/2013
+
+ Leia a dimensão de um array unidimensional de inteiros (entre 0 e 1000). Enquanto a dimensão for maior que zero, leia os dados do vetor, e um número inteiro. Utilizando um algoritmo de Busca Sequencial, verifique se este número está presente ou não no vetor. Se sim, a resposta deve ser "SIM" (sem as aspas), caso contrário a resposta deve ser "NAO" (também sem as aspas). Os dados no vetor NÃO DEVEM ser ordenados. Use alocação estática para armazenar o vetor.
+Dicas:
+
+Entrada
+10
+275 43 32 9 12 57 103 321 1 54
+532
+15
+25 433 3 18 311 56 43 31 14 44 167 765 10 49 33
+49
+0
+
+Saída
+NAO
+SIM 
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int busca(int dimensao){
+	int i, num, valor;
+	int vetor[dimensao];
+		for(i=0;i<=dimensao-1;i++){
+		scanf ("%d", &num);
+		vetor[i]=num;
+		}
+	scanf ("%d", &valor);
+	for(i=0;i<=dimensao;i++){
+		if(vetor[i]==valor)	return 1;
+	}
+	return -1;
+}
+int main () {
+	int dimens, retorno;
+	scanf ("%d", &dimens);
+	while (dimens != 0){
+		retorno=busca(dimens);
+		if (retorno > 0) printf("SIM\n");
+		else printf ("NAO\n");
+		scanf ("%d", &dimens);
+	}
+}

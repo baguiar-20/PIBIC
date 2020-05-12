@@ -1,0 +1,88 @@
+#include <stdio.h>
+#include <stdlib.h> 
+
+
+
+void printResults(int *v,int dimen){
+	int i;
+
+	for(i=0;i<dimen;i++){
+		printf("%d",v[i]);
+		printf(" ");
+	}
+
+}
+
+
+
+
+void selection(int *v, int dimen)  
+{  
+  int i, j, min, aux; 
+  for (i = 0; i < (dimen-1); i++)  
+   { 
+    min = i; 
+    for (j = (i+1); j < dimen; j++) { 
+      if(v[j] < v[min]) { 
+        min = j; 
+      } 
+    } 
+ 
+      aux = v[i]; 
+      v[i] = v[min]; 
+      v[min] = aux; 	
+
+	printResults(v,dimen);
+	printf("\n");
+	
+  }
+
+
+}
+
+
+
+
+
+int main(){
+
+	int i;
+	int dimen=1;
+	int *v;
+
+
+		
+	
+	while(dimen>0){
+	
+	scanf("%d",&dimen);
+
+	if(dimen<=0){
+		break;		
+		}
+
+	v= (int *)malloc(dimen * sizeof (int));
+
+	
+
+	for (i=0; i < dimen; i++){
+		scanf("%d",&v[i]);	
+
+		}
+
+	if(dimen>1){
+		selection(v,dimen);
+	}else{
+		printResults(v,dimen);
+		printf("\n");
+		}
+
+
+
+
+	free(v);
+
+
+}	
+return 0;
+}

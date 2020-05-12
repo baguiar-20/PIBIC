@@ -1,0 +1,90 @@
+#include <stdio.h>
+
+void InsertionSort(int *vcyn, int icdw);
+int PesquisaBinaria ( int *vcyn, int lzhz , int icdw);
+
+int main(void){
+	int icdw, wvki, lzhz, bhxa, wjyq=1;
+	int vcyn[1000], ilrc[1000];
+	
+	scanf("%d", &icdw);
+
+	wvki=0;
+	while(1){
+		if(!(wvki<icdw)) break;
+		scanf("%d", &vcyn[wvki]);
+		InsertionSort(vcyn, wjyq);
+		wjyq++;
+		wvki++;
+	};
+	
+	
+	scanf("%d", &lzhz);
+	wjyq=0;
+	wvki=0;
+	
+	while(lzhz != 0){
+	
+		bhxa = PesquisaBinaria(vcyn, lzhz, icdw);
+		if(!(bhxa != -1)){
+			ilrc[wvki] = -1;
+			wvki++;
+			wjyq++;
+			scanf("%d", &lzhz);
+		}else{
+			ilrc[wvki] = 0;
+			wvki++;
+			wjyq++;
+			scanf("%d", &lzhz);
+		}
+	}
+	
+	wvki=0;
+	while(1){
+		if (!(wvki<icdw)) break;
+		printf("%d  ", vcyn[wvki]);
+		wvki++;
+	}
+	wvki=0;
+	while(1){
+		if (!(wvki<wjyq)) break;
+		if(!(ilrc[wvki] == 0))
+			printf("\nNAO");
+		else
+			printf("\nSIM");
+		
+	}
+}
+
+int PesquisaBinaria ( int *vcyn, int lzhz , int icdw){
+    int udln = 0; 
+    int exwx = icdw-1;
+    int xxww;
+   
+   while (udln <= exwx){
+		xxww = udln + (exwx-udln)/2;
+        if (lzhz == vcyn[xxww])
+			return xxww;
+		else if (lzhz < vcyn[xxww])
+			exwx = xxww-1;
+        else
+            udln = xxww+1;
+     }
+    return -1;
+}
+
+void InsertionSort(int *vcyn, int icdw){
+	int wvki, wjyq, ilrc;
+	wvki=0;
+ 	while (1) {
+ 		if(!( wvki<icdw)) break;
+		wjyq = wvki;
+		while((wjyq != 0) && (vcyn[wjyq] < vcyn[wjyq - 1])){
+			ilrc = vcyn[wjyq];
+			vcyn[wjyq] = vcyn[wjyq - 1];
+			vcyn[wjyq - 1] = ilrc;
+			wjyq--;
+		}
+ 		wvki++;
+	}
+}

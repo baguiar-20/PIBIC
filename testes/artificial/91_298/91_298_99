@@ -1,0 +1,67 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+void selection_sort(int *xvet, int xdim);
+void imprimir(int *yvet, int ydim);
+
+int main(void){
+	int *vet;
+	int i;
+	int dim;
+
+	scanf("%d", &dim);
+
+	while (dim>0){
+		vet = (int *) malloc(dim * sizeof(int));
+		
+		for(i=0; i<dim; i++){
+			scanf("%d", &vet[i]);		
+		}
+		
+		selection_sort(vet, dim);
+		
+		free(vet);
+
+		scanf("%d", &dim);	
+	}
+}
+
+void selection_sort(int *xvet, int xdim)
+{
+	int i, j;
+	int menor, aux;
+	
+	if (xdim>1)
+	{
+		for(i=0; i<(xdim-1); i++){
+		    menor=i;
+		
+		    for(j=(i+1); j<xdim; j++){
+			if (xvet[j]<xvet[menor])
+			   menor=j;
+		    }
+		
+	            if (i!=menor){
+		       aux=xvet[i];
+		       xvet[i]=xvet[menor];
+		       xvet[menor]=aux;	
+	            }
+	
+		    imprimir(xvet, xdim);
+		}
+	}
+	
+	if (xdim==1)
+	   imprimir(xvet, xdim);
+}
+
+void imprimir(int *yvet, int ydim){
+	int i;
+
+	for(i=0; i<ydim; i++){
+		printf("%d ", yvet[i]);		
+	}
+	printf("\n");
+}
+
+

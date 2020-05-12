@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+
+int main () {
+
+	int i = 0, vetor[1000], num_atual;
+	printf("Numeros: ");
+	while (scanf("%d", &num_atual) == 1) {
+  		vetor[i] = num_atual;
+  		i++;
+	}
+	getchar(); // Ignora o caractere 'F'
+
+	
+printf("Inverso: ");
+	for(i=i-1;i>=0;i--) {
+			printf("%d ",vetor[i]);
+	}
+
+printf("\n");
+	return 1;
+}

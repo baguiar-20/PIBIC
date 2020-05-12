@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <stdlib.h>
+main(){
+	int tam,i,n,cont=0;
+
+	scanf("%d", &tam);
+
+	int vet[tam];
+
+	while(tam>0){
+		for(i=0;i<tam;i++)
+			scanf("%d", &vet[i]);
+		
+		scanf("%d", &n);
+
+		for(i=0;i<tam;i++){
+			if(vet[i]==n)
+				cont++;
+		}
+		if(cont>=1)
+			printf("SIM\n");
+		else{
+			if(cont==0)
+				printf("NAO\n");
+		}
+		cont=0;
+		scanf("%d", &tam);		
+	}
+}

@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <string.h>
+
+int main(){
+
+    int i=0,j,num=0,s=0,tam;
+    int vetor[100];
+
+
+      printf("Numeros: ");
+      i=0;
+      while(scanf("%d",&num)==1)
+      {
+        vetor[i] = num;
+        i++;
+      }
+      getchar();
+
+    while(i!=0){
+
+      for(j=0; j<i-1; j++)
+      {
+         if(vetor[j+1]<vetor[j])
+            s=1;
+      }
+
+      if(s==0)
+        printf("Ordenado.\n");
+      else
+        printf("Desordenado.\n");
+
+      printf("Numeros: ");
+      i=0;
+      s=0;
+      while(scanf("%d",&num)==1)
+      {
+        vetor[i] = num;
+        i++;
+      }
+      getchar();
+    }
+
+    return 0;
+}

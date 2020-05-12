@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+int main() {
+
+    int membro[100];
+    int i = 0;
+    int j;
+    int y = 0;
+    int z = 0;
+    int num_atual;
+
+    printf("Numeros: ");
+    while (scanf("%d", &num_atual) == 1) {
+          membro[i] = num_atual;
+          i++;
+    }
+    getchar();
+    while (i > 0) {
+        for (j = 0; j < i-1; j++) {
+          if (membro[j+1] >= membro[j]) {
+             y++;
+          } else {
+             z++;
+          }
+        }
+        if (z >= 1) {
+           printf("Desordenado.\n");
+        } else {
+           printf("Ordenado.\n");
+        }
+        printf("Numeros: ");
+        i = 0;
+        y = 0;
+        z = 0;
+        while (scanf("%d", &num_atual) == 1) {
+              membro[i] = num_atual;
+              i++;
+        }
+        getchar();
+    }
+    return 0;
+}

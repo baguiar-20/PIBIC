@@ -1,0 +1,68 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+
+void ordenar(int *vet, int ordem){
+
+	int i, j, k, aux, posicao;
+
+	if(ordem==1)
+	 {
+	   printf("%d", vet[0]);
+	   printf("\n");	 
+	}
+
+	for(i=0; i<ordem-1; i++)
+	 {
+	   posicao=i;
+
+	   for(j=i+1; j<ordem; j++)
+	    {
+		if(vet[j]<vet[posicao])
+		 {
+		    posicao=j;
+		 }
+	    }
+	   aux=vet[i];
+	   vet[i]=vet[posicao];
+	   vet[posicao]=aux;
+
+	   for(k=0; k<ordem; k++)
+	    {
+		printf("%d ", vet[k]);
+	    }
+	   printf("\n");	 
+	 }
+}
+
+int main(){
+
+	int ordem, i;
+	
+	 scanf("%d", &ordem);
+
+	while(ordem>0 && ordem<1000)
+	 {
+	   int *vet;
+
+	   vet = (int*) malloc (sizeof(int) * ordem);
+
+	   if(vet==NULL)
+	    {
+		printf("SEM MEMORIA");
+	    }
+	
+	   for(i=0; i<ordem; i++)
+	    {
+
+		scanf("%d", &vet[i]);
+	   }	
+	
+	  ordenar(vet, ordem);
+
+	  free(vet);
+	  
+	  scanf("%d", &ordem);
+	 
+	}
+}

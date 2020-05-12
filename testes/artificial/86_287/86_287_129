@@ -1,0 +1,71 @@
+/*
+				LABORATORIO DE PROGRAMAÇÃO B -
+		- Aluno: Marivaldo Rodrigues  -  Turma 02   -   Matricula: 21351819 -
+				Atividade de 19 de novembro de 2013
+	  #################################################################################################################
+
+  Leia a dimensão de um array unidimensional de inteiros (entre 1 e 1000) e, em seguida, leia os dados do vetor. Considere que esses dados são todos diferentes de zero. Em seguida, leia um número inteiro a ser buscado no vetor. Enquanto esse número for diferente de zero, utilizando o algoritmo de Busca Binária, verifique se este número está presente ou não no vetor. Se sim, a resposta deve ser "SIM" (sem as aspas), caso contrário a resposta deve ser "NAO" (também sem as aspas). Use alocação ESTÁTICA para armazenar o vetor. Os dados no vetor DEVEM ficar ordenados. A ordenação deve ser feita SOMENTE no final da inserção de todos os elementos. Antes de fazer a busca, o vetor ordenado deve ser impresso.
+Dicas:
+
+Entrada
+15
+25 433 3 18 311 56 43 31 14 44 167 765 10 49 33
+532
+49
+25
+400
+0
+
+Saída
+3 10 14 18 25 31 33 43 44 49 56 167 311 433 765
+NAO
+SIM
+SIM
+NAO
+	 #################################################################################################################	
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int busca(int dimensao){
+	int i, num, valor, final, temp, ind_esq, ind_meio, ind_dir, achou;
+	int vetor[dimensao];
+		for(i=0;i<=dimensao-1;i++){
+		scanf ("%d", &num);
+		vetor[i]=num;
+		}
+	
+	for (final=dimensao-1; final>0; final--) {
+		for (i=0; i<final; i++){
+			if (vetor[i]>vetor[i+1]){
+			int temp = vetor[i];
+			/* troca */
+			vetor[i] = vetor[i+1];
+			vetor[i+1] = temp;
+			}
+		}
+	} 
+	for (i=0; i < dimensao; i++){ printf("%d ", vetor[i]);}
+	scanf ("%d", &valor);
+   
+	while (valor!=0){
+		ind_esq = 0, ind_dir = dimensao-1; achou=0;
+		while (ind_esq <= ind_dir) { 
+			ind_meio = (ind_esq + ind_dir)/2; 
+			if (vetor[ind_meio] == valor) achou=1;
+			if (vetor[ind_meio] < valor) ind_esq = ind_meio + 1;
+			else ind_dir = ind_meio - 1;
+		}
+		if (achou==1) printf ("SIM\n");
+		else printf ("NAO\n");
+		scanf ("%d", &valor);
+	}
+}
+
+int main () {
+	int dimens, retorno;
+	scanf ("%d", &dimens);
+	if (dimens != 0) busca(dimens);
+}

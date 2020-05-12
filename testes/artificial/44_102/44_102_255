@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main()
+{
+	int rfse, ezxb, ftrg;
+	
+	scanf("%d", &rfse);
+	
+	ftrg = 1;
+	
+	ezxb=rfse;
+	while(1)
+	{
+		if(!( ezxb>=1)) break;
+		ftrg = ftrg*ezxb;
+		ezxb--;
+	}
+	
+	printf("%d", ftrg);
+
+
+
+
+	return 0;
+}

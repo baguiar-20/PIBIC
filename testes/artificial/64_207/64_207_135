@@ -1,0 +1,41 @@
+/*
+Fazer um programa que leia o valor de n (1 < n < 21), leia uma matriz de valores inteiros de ordem nXn, calcule e exiba a soma dos números positivos e a soma dos números negativos, exceto os da diagonal principal. Leia uma linha de cada vez. A ordem de saída deve simplesmente o número que corresponde à soma dos números positivos e depois o número que corresponde à soma dos números negativos (que deve ser negativo).   
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+#define MATRIZ 15
+main()
+{
+	int M[MATRIZ], num, i, acc = 0;
+
+	for(i = 0; i < MATRIZ; i++)
+	{
+		scanf("%d", &M[i]);
+//		M[i] = Aleatorio(100,1);
+//		printf("%d ",M[i]);
+//		sleep(1);
+	}
+	printf("\n");
+	scanf("%d", &num);
+//	num = Aleatorio(100,1);
+//	printf("%d\n",num);
+	for(i = 0; i < MATRIZ; i++)
+	{
+		if(num == M[i])
+		{
+			acc++;
+			printf("%d\n",i+1);
+		}
+	}	
+	if(!(acc))	printf("NAO\n");
+}
+
+int Aleatorio(int a, int b)
+{
+	srand(time(NULL));
+	return rand() % a + b;
+}
+

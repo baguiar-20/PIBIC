@@ -1,0 +1,102 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+int binaria (int veut, int *xmpe, int ygrt);
+
+int main() {
+
+	int *xmpe, aoov, bpax, ygrt, veut, aux, otrn;
+	
+	int expAdriaMenezes1;
+	int expAdriaMenezes2;
+
+	scanf ("%d", &veut);
+
+	xmpe = (int*) malloc(veut*(sizeof(int)));
+
+	expAdriaMenezes1 = (xmpe==NULL);
+	if (expAdriaMenezes1 == 1) 
+		return 1;
+
+	aoov=0;
+	while(1) {
+		if (!(aoov<veut)) break;
+		scanf ("%d", &xmpe[aoov]);
+		aoov++;
+	}
+
+	aoov=0;
+	while(1) {
+		if (!(aoov<veut)) break;
+		bpax=0;
+		while(1) {
+			if (!(bpax<veut-1)) break;
+			expAdriaMenezes2 = (xmpe[bpax+1]<xmpe[bpax]);
+			if (expAdriaMenezes2 == 1) {
+				aux=xmpe[bpax+1];
+				xmpe[bpax+1]=xmpe[bpax];
+				xmpe[bpax]=aux;
+			}
+			bpax++;
+		}
+		aoov++;
+	}
+
+	aoov=0;
+ 	while (1) {
+ 		if(!(aoov<veut)) break;
+		printf("%d ",xmpe[aoov] );
+		aoov++;
+	}
+
+	printf ("\n");
+
+	ygrt=1;
+
+	while (ygrt!=0) {
+
+		scanf ("%d", &ygrt);
+	
+		if (ygrt!=0) {
+			otrn = binaria (veut, xmpe, ygrt);
+			if  (!(otrn==-1)){ 
+				printf ("SIM\n");
+			}
+			else {
+				printf ("NAO\n");
+			}
+		}
+	}
+
+	free (xmpe);
+	
+	return 0;
+
+}
+
+int binaria (int veut, int *xmpe, int ygrt) {
+
+	int rdpf, pjvl, pcxo;
+	
+	rdpf=0;
+	pjvl=veut-1;
+
+	while (rdpf<=pjvl) {
+
+		pcxo=(rdpf+pjvl)/2;
+
+		if (ygrt<xmpe[pcxo])
+			pjvl=pcxo-1;
+		else if (ygrt>xmpe[pcxo])
+			rdpf=pcxo+1;
+		else return pcxo;
+	}
+
+	return -1;
+}
+
+
+
+
+
+

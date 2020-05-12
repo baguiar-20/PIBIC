@@ -1,0 +1,81 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+void insertion_sort(int *xvet, int xdim);
+int busca_binaria(int *xvet, int xpesq, int xini, int xfim);
+
+int main(void)
+{
+	int vet[1000];
+	int pesq;
+	int i,j;
+	int dim;
+	int aux;
+
+	scanf("%d", &dim);
+	
+	for (i=0; i<dim; i++)
+	{		
+	     scanf("%d", &vet[i]);
+	}
+
+    insertion_sort(vet, dim); 
+		
+	for (i=0; i<dim; i++)
+	{		
+	     printf("%d ", vet[i]);
+	}
+	
+	scanf("%d", &pesq);
+	
+	while (pesq>0)
+	{
+		aux=busca_binaria(vet, pesq, 0, dim-1);
+
+		if (aux!=-1)
+		{
+		     if (pesq==vet[aux])
+                 printf("SIM\n");
+          }    
+		else 
+            printf("NAO\n");
+
+		scanf("%d", &pesq);	
+	}	
+
+}
+
+int busca_binaria(int *xvet, int xpesq, int xini, int xfim)
+{
+    int meio;
+    
+    meio=(xini+xfim)/2;
+    
+    if(xpesq==xvet[meio])
+       return meio;          
+    else if(xini>=xfim)
+         return -1;
+    else{
+         if (xpesq>xvet[meio])
+            return busca_binaria(xvet, xpesq, meio+1, xfim);
+           
+         if (xpesq<xvet[meio])
+            return busca_binaria(xvet, xpesq, xini, meio-1);    
+    }    
+}
+
+void insertion_sort(int *xvet, int xdim)
+{
+     int i, j, xaux;
+     
+     for(i=1; i<xdim; i++){
+         xaux=xvet[i];
+         j=i-1;
+         
+         while ((j>=0) && (xaux<xvet[j])){
+               xvet[j+1]=xvet[j];
+               j--;      
+         }
+         xvet[j+1]=xaux;         
+     }
+}

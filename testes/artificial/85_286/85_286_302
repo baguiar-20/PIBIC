@@ -1,0 +1,61 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+main(void)
+{
+    int num, qtd, *vet, i, flag=0, cont=0,acum=0;
+    int resp[20],j=0;
+
+    scanf("%d",& qtd);
+    while(qtd > 0)
+    {
+        vet = (int *)malloc(sizeof(int)*qtd);
+        for(i=0; i<qtd; i++)
+        {
+            scanf("%d",& vet[i]);
+        }
+
+        scanf("%d",& num);
+        for(i=0; i<qtd;i++)
+        {
+            if (num == vet[i])
+            {
+                flag=1;
+            }
+            else
+                {
+                    cont++;
+                }
+
+            if (flag == 1)
+            {
+                resp[j] = 1;
+            }
+            if (cont==qtd)
+            {
+                resp[j] = 0;
+            }
+            flag = 0;
+        }
+
+        qtd=0;
+        cont=0;
+        j++;
+        acum++;
+        free(vet);
+
+        scanf("%d", &qtd);
+    }
+    for (j=0;j<acum;j++)
+    {
+        if(resp[j] == 1)
+        {
+            printf("SIM");
+        }
+        else if(resp[j] == 0)
+        {
+            printf("NAO");
+        }
+        printf("\n");
+    }
+}

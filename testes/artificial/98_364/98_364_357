@@ -1,0 +1,40 @@
+#include<stdio.h>
+#include<string.h>
+
+#define TAM 100
+
+int main(){
+
+int i=0, num_atual, vetor[100], j, cont=0;
+
+printf("Numeros: ");
+while (scanf("%d", &num_atual) == 1) {
+  vetor[i] = num_atual;
+  i++;
+}
+getchar();
+
+while(i>0){
+
+for(j=0; j<i-1; j++){
+if(vetor[j+1] < vetor[j]){
+    cont++;
+}
+}
+ if(cont>0){
+    printf("Desordenado.\n");
+ }else{
+    printf("Ordenado.\n");
+ }
+
+ i=0;
+ cont = 0;
+
+printf("Numeros: ");
+while (scanf("%d", &num_atual) == 1) {
+  vetor[i] = num_atual;
+  i++;
+}
+getchar();
+}
+}

@@ -1,0 +1,62 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+int main () {
+
+
+    int valor, resultado, i, dim=1, flag;
+
+		int *vetor;
+		
+
+	while (dim!=0) {
+	
+	scanf ("%d", &dim);
+
+	vetor= (int*)malloc (dim*sizeof(int));
+
+
+	if ((dim>0) && (dim<=1000)) {
+	
+	for (i=0; i<dim; i++) {
+	
+    scanf("%d", &vetor[i]);
+
+	
+		}
+	}
+	
+
+	else {
+			
+		return 0;		
+		}
+	scanf ("%d", &valor);
+	
+	flag=-9000000;
+
+	for (i=0; i<dim; i++) {
+
+		if (vetor[i]==valor) {
+
+			flag=valor;
+
+				}
+			}	
+
+		if (flag!=-9000000) {
+
+			printf ("SIM\n");
+		}
+
+		else {
+
+			printf ("NAO\n");
+		}
+
+	free (vetor);
+
+	}		
+
+}
+

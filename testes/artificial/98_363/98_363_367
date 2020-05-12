@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+#define TAM 100
+
+int main() {
+
+    int vtr[TAM];
+    int j, b;
+    int i = 0;
+    printf("Numeros: ");
+    while (scanf("%d", &b) == 1) {
+    vtr[i] = b;
+    i++;
+}
+    printf("Inverso: ");
+    for(j=(i-1);j>=0;j--){
+        printf("%d ",vtr[j]);
+    }
+}

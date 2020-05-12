@@ -1,0 +1,17 @@
+#include "stdio.h"
+int main(){
+	long int vetor[100];
+	int i, n, menor=10000, maior=-10000, qq; 
+	scanf("%d", &n);
+	
+	for(i=0;i<n;i++){
+			scanf("%d", &qq);
+			if(qq<=menor)
+				menor=qq;
+			if(qq>=maior)
+				maior=qq;
+		
+	}
+	printf("%d\n%d", menor, maior);
+}
+			

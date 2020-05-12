@@ -1,0 +1,84 @@
+#include "stdio.h"
+#include "stdlib.h"
+
+void ordenarbs(int *vetor, int n ){
+	 int i, j, aux;
+	 for(i=0;i<n-1;i++){
+		for(j=0;j<n-i-1;j++){
+			if(vetor[j]>vetor[j+1]){
+				aux=vetor[j];
+				vetor[j]=vetor[j+1];
+				vetor[j+1]=aux;
+			}
+		}
+	}
+}
+
+void imprimir(int *vetor, int n){
+		int i;
+		for(i=0;i<n;i++){
+			printf("%d ", vetor[i]);
+		}
+	printf("\n");
+}
+
+					
+int buscabinaria( int *vetor, int qq, int n){
+
+     int inf = 0;
+     int sup = n-1; 
+     int meio;
+     
+	
+
+	
+	while (inf<=sup){
+          meio=inf+(sup-inf)/2;
+          if (qq==vetor[meio])
+				return meio; //printf("SIM")
+          else{
+			 if (qq<vetor[meio])
+               sup = meio-1;
+          	 else
+               inf = meio+1;
+		  }
+
+	 }
+     return -1;   // printf("NAO")
+	
+}	
+		
+
+int main(){
+	int n, i, qq;
+	scanf("%d", &n);
+	
+	int *vetor=(int*)malloc(n*sizeof(int));
+	
+	
+	for(i=0;i<n;i++){
+		scanf("%d", &vetor[i]);
+	}
+
+	ordenarbs(vetor, n);
+	imprimir(vetor, n);
+
+	scanf("%d", &qq);
+
+	while(qq!=0){
+		buscabinaria(vetor, qq, n);
+		if(buscabinaria(vetor, qq, n)==-1)
+			printf("NAO\n");
+		else
+			printf("SIM\n");
+	
+	
+	scanf("%d", &qq);
+	free(vetor);
+	vetor=(int*)malloc(n*sizeof(int));
+
+	}
+	
+}
+
+	

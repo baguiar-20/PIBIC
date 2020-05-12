@@ -1,0 +1,55 @@
+#include <stdio.h>
+#include <stdlib.h>
+int main(void){
+	
+	int dim,num,i,flag,*vet;
+	
+	//vet=(int*) malloc(1000*sizeof(int));
+	
+	do{
+	
+		dim=i=flag=0;
+		
+		scanf("%d",&dim);
+		
+		vet=(int*) malloc(dim*sizeof(int));
+		
+		if(dim){
+			
+			for(i=0;i<dim;i++){
+				
+				scanf("%d",&vet[i]);
+				
+			}
+			
+			scanf("%d",&num);
+			
+			for(i=0;i<dim;i++){
+				
+				if(vet[i]==num){
+					
+					flag++;
+					
+				}
+				
+			}
+			
+			if(flag){
+				
+				printf("SIM\n");
+				
+			}else{
+				
+				printf("NAO\n");
+				
+			}
+			
+		}
+	
+	free(vet);
+		
+	}while(dim);
+	
+	return 0;
+	
+}

@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+int main(int argc, char *argv[]) {
+  
+  FILE *ytrf = fopen(argv[1], "rb");
+  int tgrf;
+  
+  srand(time(NULL));
+  
+  for (;fread(&tgrf, sizeof(int), 1, ytrf) != 0;) printf("%d\n", tgrf);
+  
+  fclose(ytrf);
+  
+  return 0;
+}
+

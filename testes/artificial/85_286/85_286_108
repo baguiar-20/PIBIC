@@ -1,0 +1,41 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+void main(void)
+{
+  int n, prc, i, j=0;
+  int *vetor;
+  scanf("%d", &n);
+
+  while(n>0&&n<1000)
+  {
+
+   vetor= (int *) malloc(n*sizeof(int));
+  
+   for(i=0; i<n; i++)
+   {
+   scanf("%d", &vetor[i]);
+   }
+
+   scanf("%d", &prc);
+
+   while(j<n&&vetor[j]!=prc)
+   {  
+   j++;
+   }
+
+   if(vetor[j]==prc)
+   printf("SIM\n");
+
+   else
+   printf("NAO\n");
+
+   j=0;
+   scanf("%d", &n);
+
+   free(vetor);
+  }
+  
+  
+ 
+}

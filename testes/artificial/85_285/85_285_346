@@ -1,0 +1,57 @@
+#include <stdio.h>
+int BuscaSequencial(int *vet, int dim, int x);
+
+int main(void){
+	
+	//Declaracao de variaveis
+	int i, dim, x, resultado;
+	int vet[1000], aux[1000];
+	int j=0;
+	
+	//Informe a dimensao do vetor
+	scanf("%d", &dim);
+	
+	while(dim != 0){
+		
+		//Lendo os valores do vetor
+		for(i=0;i<dim;i++){
+			scanf("%d", &vet[i]);
+		}
+		
+		//Informe o valor a ser encontrado
+		scanf("%d", &x);
+		
+		//Busca Sequencial
+		resultado = BuscaSequencial(vet, dim, x);
+		
+		//Guardando resultado no vetor aux
+		if(resultado != -1){
+			aux[j] = 0;
+			j++;
+		}else{
+			aux[j] = -1;
+			j++;
+		}
+		
+		scanf("%d", &dim);
+	}
+	
+	//Imprimindo saídas
+	for(i=0;i<j;i++){
+		if(aux[i] == 0){
+			printf("\nSIM");
+		}else{
+			printf("\nNAO");
+		}
+	}
+}
+
+int BuscaSequencial(int *vet, int dim, int x){
+	int i;
+	
+	for(i=0;i<=dim;i++){
+		if(vet[i] == x)
+		return i;
+	}
+	return -1;
+}

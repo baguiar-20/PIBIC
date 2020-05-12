@@ -1,0 +1,43 @@
+#include<stdio.h>
+#define max 1000
+
+int busca (int *knmb, int pwrd, int hbvg);
+
+int main () {
+
+    int knmb [max];
+
+    int pwrd, pkhj, i;
+	
+	i=0;
+	while (1) {
+	
+    if(!(i<max)) break;
+    
+    scanf("%d", &knmb[i]);
+	
+	i++;
+	
+	}
+
+	scanf ("%d", &pwrd);
+
+    pkhj = busca(knmb, pwrd, 0);
+
+    if (!(pkhj == -1)) printf("SIM");
+    else printf("NAO");
+
+    return 0;
+}
+
+int busca (int *knmb, int pwrd, int hbvg)
+{
+    int expAdriaMenezes1;
+    int expAdriaMenezes2;
+    expAdriaMenezes1 = (hbvg==max);
+    if(!(!(expAdriaMenezes1))) return -1;
+    expAdriaMenezes2 = (knmb[hbvg] == pwrd);
+    if(expAdriaMenezes2==1) return hbvg;
+    return busca (knmb, pwrd, hbvg +1);
+
+}

@@ -1,0 +1,28 @@
+#include<stdio.h>
+
+int main(){
+	
+	int a, i, j,cont=0;
+	int string[15];
+	
+	for(i=0;i<15;i++){
+		scanf("%d", &a);
+		string[i]=a;
+	}
+	
+	scanf("%d", &j);
+	
+	for(i=0;i<15;i++){
+		if(j==string[i]){
+			cont=i+1;
+			break;
+		}
+	}
+	
+	if(cont==0){
+		printf("NAO\n");
+	}
+	else{
+		printf("%d\n", cont);
+	}
+}

@@ -1,0 +1,74 @@
+/*Leia a dimensão de um array unidimensional de inteiros (entre 0 e 1000). Enquanto a dimensão for maior que zero, leia os dados do vetor. Em seguida, ordene o vetor pelo método da SELEÇÃO. Use ALOCAÇÃO DINÂMICA para armazenar o vetor. Não esqueça de liberar a memória a cada alocação do vetor. A cada interação do método imprima o vetor parcialmente ordenado.*/
+
+#include<stdio.h>
+#include<stdlib.h>
+
+void selecao(int vetor[], int dimensao);
+
+int main() {
+	
+	int *vetor, dimensao, i;
+
+	dimensao=1;
+
+	while (dimensao>0) {
+
+		scanf ("%d", &dimensao);
+		
+
+		if (dimensao>0) {
+
+			vetor = (int*) malloc(sizeof(int)*dimensao);
+
+			if (vetor==NULL)
+				exit(1);
+
+			for (i=0; i<dimensao; i++) 
+				scanf ("%d", &vetor[i]);
+
+			//ordenacao
+			selecao(vetor, dimensao);
+
+			free(vetor);
+		}
+		
+	} 
+
+	return 0;
+}
+
+void selecao(int vetor[], int dimensao) {
+
+	int i, j, k, menor, aux;
+
+	if (dimensao==1) {
+		printf("%d\n", vetor[0]);
+	}
+
+	else {
+
+		for (i=0;i<(dimensao-1);i++) {
+			menor=i;
+			for (j=(i+1);j<dimensao; j++) {
+				if (vetor[j]<vetor[menor]) {
+					menor=j;
+				}
+			}
+
+			if (i != menor) {
+				aux=vetor[i];
+				vetor[i]=vetor[menor];
+				vetor[menor]=aux;
+			}
+
+			//imprime vetor percialmente ordenado
+			for (k=0;k<dimensao;k++) {
+				printf("%d ", vetor[k]);
+			}
+
+			printf ("\n");
+		}
+	}
+
+}
+

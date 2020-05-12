@@ -1,0 +1,52 @@
+#include <stdio.h>
+#include <ctype.h>
+#include <string.h>
+
+int main(){
+ 
+ int vetor[100];
+ int i,a, num_atual, n_num,acc;
+ i = 0;
+ acc = 0;
+
+
+ command1: printf("Numeros: ");
+ if  (scanf("%d", &num_atual) == 0){
+      return 0;
+ }
+ while (scanf("%d", &num_atual) == 1) {
+        vetor[i] = num_atual;
+        i++;
+ } 
+ getchar(); // Ignora o caractere 'F'
+
+ n_num = vetor[0];
+ for (a=1; a!=i; a++){
+      if (n_num<vetor[a]||n_num==vetor[a]){
+          n_num = vetor[a];
+          acc++;
+      }
+
+
+ }
+ 
+ if(acc == (i-1)){
+    printf("Ordenado.\n");
+ }
+ else {
+    printf("Desordenado.\n");
+ }
+ acc = 0;
+ a = 0;
+ i = 0;
+ n_num = 0;
+
+ goto command1;
+
+
+
+
+
+
+ return 0;
+ }

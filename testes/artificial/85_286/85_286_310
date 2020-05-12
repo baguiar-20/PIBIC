@@ -1,0 +1,60 @@
+# include <stdio.h>
+# include <stdlib.h>
+
+int *alocar_vetor(int tam){
+  int *vet;
+  if (tam < 1) {
+     printf ("** Erro: Parametro invalido **\n");
+     return (NULL);
+     }
+  vet = (int *) calloc (tam+1, sizeof(int));
+  if(vet == NULL) {
+     printf ("** Erro: Memoria Insuficiente **");
+     return (NULL);
+     }
+  return(vet);
+}
+
+
+short int busca_sequencial(int num, int vet[], int z){
+	int i;	
+	for(i=1;i<=z;i++){
+		if(vet[i] == num){
+			return 1;		
+		}
+	}
+	return 0;
+}
+
+
+int *liberar_vetor(int tam, int *vet)
+{
+  if (vet == NULL) return (NULL);
+  if (tam < 1) { /* verifica parametros recebidos */
+     printf ("** Erro: Parametro invalido **\n");
+     return (NULL);
+     }
+  free(vet);        /* libera o vetor */
+  return (NULL);  /* retorna o ponteiro */
+}
+
+
+int main(){
+	int num, z, tam, *vet,i;
+	for(i=0;i<2;i++){	
+		scanf("%d", &tam);	
+		vet = alocar_vetor(tam);		
+		for(z=1;z<=tam;z++){
+			scanf("%d", &vet[z]);
+		}
+		scanf("%d", &num);
+		if(busca_sequencial(num, vet, tam) == 1){		
+			printf("SIM");			
+		}else{
+			printf("NAO");
+		}
+		vet = liberar_vetor(tam, vet);
+		printf("\n");
+	}
+	return 0;
+}

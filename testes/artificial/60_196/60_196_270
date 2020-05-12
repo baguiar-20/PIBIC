@@ -1,0 +1,78 @@
+#include "stdio.h"
+int jgdl, zqgl, ejcj; 
+void mostraminado(char mjqw[20][20]){
+		jgdl=0;
+		while(1){
+			if(!(jgdl<ejcj)) break;
+			zqgl=0;
+			while(1){
+			if(!(zqgl<ejcj)) break;
+			if(!(mjqw[jgdl][zqgl]=='*')){
+					  printf("%d ", mjqw[jgdl][zqgl]);
+			}
+			else{
+			    printf("%c ", mjqw[jgdl][zqgl]);
+			}
+			zqgl++;
+		}
+		printf("\n");
+		jgdl++;
+	}
+}
+int main (){
+	char  mjqw[20][20];
+	int ohwt;
+	int expAdriaMenezes;
+		 scanf("%d", &ejcj);
+
+	jgdl=0;
+	while(1){
+		if(!(jgdl<ejcj)) break;
+		zqgl=0;
+		while(1){
+		   if(!(zqgl<ejcj)) break;
+		   scanf("%d", &ohwt);
+		   mjqw[jgdl][zqgl]=ohwt;
+		   zqgl++;
+		}
+		jgdl++;
+	}
+
+    jgdl=0;
+	while(1){
+		if(!(jgdl<ejcj)) break;
+		zqgl=0;
+		while(1){
+		   if(!(zqgl<ejcj)) break;
+		   expAdriaMenezes = (mjqw[jgdl][zqgl]==1);
+		   if(expAdriaMenezes == 1){
+				mjqw[jgdl][zqgl]='*';
+		   }
+		   zqgl++;
+		}
+		jgdl++;
+	}
+
+    jgdl=0;
+	while(1){
+		if(!(jgdl<ejcj)) break;
+		zqgl=0;
+		while(1){
+ 		    if(!(zqgl<ejcj)) break;
+			if(mjqw[jgdl][zqgl]=='*'){
+			if(mjqw[jgdl-1][zqgl-1]!='*')	mjqw[jgdl-1][zqgl-1] = mjqw[jgdl-1][zqgl-1]+1;
+			if(mjqw[jgdl][zqgl-1]!='*') 	mjqw[jgdl][zqgl-1]   = mjqw[jgdl][zqgl-1]+1;
+			if(mjqw[jgdl+1][zqgl-1]!='*')	mjqw[jgdl+1][zqgl-1] = mjqw[jgdl+1][zqgl-1]+1;
+			if(mjqw[jgdl+1][zqgl]!='*') 	mjqw[jgdl+1][zqgl]   = mjqw[jgdl+1][zqgl]+1;
+			if(mjqw[jgdl+1][zqgl+1]!='*')	mjqw[jgdl+1][zqgl+1] = mjqw[jgdl+1][zqgl+1]+1;
+			if(mjqw[jgdl][zqgl+1]!='*') 	mjqw[jgdl][zqgl+1]   = mjqw[jgdl][zqgl+1]+1;
+			if(mjqw[jgdl-1][zqgl+1]!='*')	mjqw[jgdl-1][zqgl+1] = mjqw[jgdl-1][zqgl+1]+1;
+			if(mjqw[jgdl-1][zqgl]!='*')	    mjqw[jgdl-1][zqgl]   = mjqw[jgdl-1][zqgl]+1;
+			}
+			zqgl++;
+		}
+		jgdl++;
+	}
+	mostraminado(mjqw);
+}
+

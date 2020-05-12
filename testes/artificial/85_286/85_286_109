@@ -1,0 +1,45 @@
+#include "stdio.h"
+#include "stdlib.h"
+
+main()
+{
+	int n, i, num, flag;
+	
+	scanf("%d", &n);
+	
+	while(n != 0)
+	{
+		int *vetor;
+		vetor = (int *)malloc(n*sizeof(int));
+		
+		for(i = 0;i < n;i++)
+		{
+			scanf("%d", &vetor[i]);
+		}
+		
+		scanf("%d", &num);
+		
+		flag = 0;
+		
+		for(i = 0;i < n;i++)
+		{
+			if(vetor[i] == num)
+			{
+				flag++;
+			}
+		}
+		
+		if(flag == 1)
+		{
+			printf("SIM\n");
+		}
+		else
+		{
+			printf("NAO\n");
+		}
+		
+		scanf("%d", &n);
+		
+		free(vetor);
+	}
+}

@@ -1,0 +1,30 @@
+#include <stdio.h>
+#define TAM_MAX 100
+int main (){
+	int i = 0,j,k=2;
+	int num_atual;
+	int vetor[TAM_MAX];
+	
+	while(k>1){
+	i=0;
+	k=1;
+	int a=0;
+	printf("Numeros: ");
+	while (scanf("%d", &num_atual) == 1) {
+	vetor[i] = num_atual;
+	i++;
+	k++;
+	}
+	getchar();
+	
+	for(j=0;j<i;j++){
+		if (vetor[j]<vetor[j+1])
+			a++;
+	}
+	if (a==j && k!=1)
+		printf("Ordenado.\n");
+	else if (a!=j && k!=1) 
+		printf("Desordenado.\n");
+	}
+	return 0;	
+}

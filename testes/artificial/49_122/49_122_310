@@ -1,0 +1,43 @@
+#include<stdio.h>
+#include<stdlib.h>
+#define hgrs 30
+main(void)
+{
+	int xbhn[hgrs];
+	int mzes,bgvf;
+	int expAdriaMenezes;
+	mzes=0;
+	while(1)
+	{
+		if(!(mzes<hgrs))
+		{
+			break;
+		}
+		scanf("%d",&xbhn[mzes]);	
+		mzes++;
+	}	
+	
+	mzes=0;
+	while(1)
+	{
+		if(!(mzes<11))
+		{
+			break;
+		}
+		printf("%d", mzes);
+		for(bgvf=0;bgvf<hgrs;bgvf++)
+		{
+			expAdriaMenezes = (mzes==xbhn[bgvf]);
+			if(expAdriaMenezes==1)
+			{
+				printf(" *");
+			}
+			
+		}		
+		printf("\n");
+		mzes++;
+
+	}
+
+}
+	

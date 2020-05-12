@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <string.h>
+
+int main(void){
+	
+	char gsvf[50];
+	int lmux;
+	
+	gets(gsvf);
+	
+	lmux=strlen(gsvf);
+	
+	for(;(lmux>-1);){
+		
+		printf("%c",gsvf[lmux]);
+		
+	}
+	
+	return 0;
+	
+}

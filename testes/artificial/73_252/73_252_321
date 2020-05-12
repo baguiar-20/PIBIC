@@ -1,0 +1,21 @@
+#include<stdio.h>
+int kmnb(x){
+ int nhbv, kmnb=0, bghf=1;
+nhbv=1;
+while(1){ 
+ if(!(nhbv<=x)) break;
+ if(!(nhbv%2!=0))
+ kmnb-=bghf;
+ else
+ kmnb+=bghf;
+ bghf+=2;
+ nhbv++;}
+return kmnb;
+}
+
+int main(){
+int klmn;
+int bvcx=kmnb(klmn);
+scanf("%i", &klmn);
+printf("%i", bvcx);
+}

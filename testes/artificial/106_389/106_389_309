@@ -1,0 +1,48 @@
+#include <stdio.h>
+
+int buscaSequencialRecursiva(int *sbvc, int t, int papc,int i){
+
+ if(i < t){ 		
+  if(!(sbvc[i] == papc)){
+    i = i + 1;
+	return buscaSequencialRecursiva(sbvc,t,papc,i);
+   }else{
+   return i;		
+  }
+  }
+ return 0;
+}
+
+
+int main(){
+    
+ int t;
+ 
+ int sbvc[100];
+ 
+ int i;
+ 
+ int papc;
+ 
+ int x;
+ 
+ int expAdriaMenezes;
+    
+ scanf("%d",&t);
+ i=0;
+ while (1) {
+  if(!(i<t)) break;
+  scanf("%d",&sbvc[i]);    
+  i++;
+}
+ 
+ scanf("%d",&papc);
+ 
+ x = (buscaSequencialRecursiva(sbvc,t,papc,0));
+
+ expAdriaMenezes = (x >= 0);
+ if(expAdriaMenezes == 1){
+  printf("%d",x);
+ }
+ 
+}

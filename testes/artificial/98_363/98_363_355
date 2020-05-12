@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <string.h>
+
+#define TAM 100
+
+int main (int argc, char *argv[]){
+
+  int hpjq[TAM], xctu, rhau=0;
+
+  printf("Numeros: ");  
+  while (scanf("%d", &xctu) == 1) {
+    hpjq[rhau] = xctu;
+    rhau++;
+  }
+  getchar();
+
+  printf("Inverso:");
+  rhau=rhau-1;
+  while (1) {
+    if(!( rhau>=0)) break;
+    printf(" %d", hpjq[rhau]);
+    rhau--;
+  }
+  printf("\n");
+
+  return 0;
+
+}

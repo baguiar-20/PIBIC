@@ -1,0 +1,21 @@
+#include <stdio.h>
+int main(){
+
+	int n,i,menor=1000000000,maior=-100000000;
+
+	scanf("%d", &n);
+
+	int vet[n];
+
+	for(i=0;i<n;i++){
+		scanf("%d", &vet[i]);
+		if(vet[i]>=maior)
+			maior= vet[i];
+		if(vet[i]<=menor)
+			menor= vet[i];
+	}		
+	printf("%d\n%d\n", menor,maior);	
+}
+
+		
+	

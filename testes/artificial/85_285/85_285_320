@@ -1,0 +1,59 @@
+#include<stdio.h>
+
+
+int main () {
+
+    int nchg [1000];
+
+    int okhj, ljgd, huzx, xtrf=1, ydte;
+    
+    int expAdriaMenezes;
+
+
+
+	while (xtrf!=0) {
+	
+	scanf ("%d", &xtrf);
+
+	expAdriaMenezes = (xtrf>0) && (xtrf<=1000);
+	if (!(!expAdriaMenezes)) {
+	huzx=0;
+	while (1) {
+	if(!( huzx<xtrf)) break;
+    scanf("%d", &nchg[huzx]);
+	huzx++;
+	}
+	
+	}
+	
+	else {
+			
+		return 0;		
+		}
+	scanf ("%d", &okhj);
+	
+	ydte=-9000000;
+	huzx=0;
+	while (1) {
+		if(!( huzx<xtrf)) break;
+		if (nchg[huzx]==okhj) {
+
+			ydte=okhj;
+
+				}
+			huzx++;
+			}	
+
+		if (!(ydte!=-9000000)) {
+
+			printf ("NAO\n");
+		}
+
+		else {
+
+			printf ("SIM\n");
+		}
+
+	}		
+}
+

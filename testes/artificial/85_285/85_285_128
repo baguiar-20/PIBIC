@@ -1,0 +1,38 @@
+#include<stdio.h>
+
+
+
+int main(){
+
+	int n, i, numero2,j;
+
+	scanf("%d", &n);
+
+	int vetor[n];
+
+	while(n>0){
+
+		
+		for(i=0; i<n; i++){
+			
+			scanf("%d", &vetor[i]);
+		}
+		
+		scanf("%d", &numero2);
+
+		for(j=0; j<n; j++){
+			if(vetor[j]==numero2){
+				break;
+			}
+		}
+		if(j!=n){
+			printf("SIM\n");
+		}
+		else{
+			printf("NAO\n");
+		}
+
+		
+		scanf("%d", &n);
+	}
+}

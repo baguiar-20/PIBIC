@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main (){
+	
+	int expAdriaMenezes;
+	int yhgf [7] [7] = {{0,2,11,6,15,11,1},{2,0,7,12,4,2,15},{11,7,0,11,8,3,13},{6,12,11,0,10,5,13},{15,4,8,10,0,5,13},{11,2,3,2,5,0,14},{1,15,13,1,13,14,0}};
+
+	int pkjm=0, tgfg=1;
+
+	for (;pkjm!=tgfg;){
+		scanf("%d %d", &pkjm, &tgfg);
+		expAdriaMenezes = ((pkjm>=0)&&(pkjm<7)&&(tgfg>=0)&&(tgfg<7));
+		if(expAdriaMenezes==1) {
+			if (pkjm!=tgfg) printf("%d\n", yhgf[pkjm][tgfg]);
+		}	
+	}
+	return 0;
+}

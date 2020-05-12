@@ -1,0 +1,22 @@
+#include "stdio.h"
+
+int main(){
+	int nmik,nncj,ryxw=1,lfdo,mcus,sdsf;
+	scanf("%d%d",&nmik,&nncj);
+	if(!(nmik > nncj)){
+	for(;(mcus!=0);){
+        lfdo=(nncj*ryxw)/nmik;
+	mcus=(nncj*ryxw)%nmik;
+	sdsf=nncj*ryxw;
+	ryxw++;
+	}
+    	}else{
+		for(;(mcus!=0);){
+        lfdo=(nmik*ryxw)/nncj;
+	mcus=(nmik*ryxw)%nncj;
+	sdsf=nmik*ryxw;
+	ryxw++;
+	}
+	}
+	printf("%d",sdsf);
+}

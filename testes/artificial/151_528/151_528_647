@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+void troca_por_referencia(int* xgfd, int* jgth){
+	int bcxz;
+	bcxz = *xgfd;
+	*xgfd = *jgth;
+	*jgth = bcxz;
+}
+
+void troca_por_valor(int xgfd, int jgth){
+	int bcxz;
+	bcxz = xgfd;
+	xgfd = jgth;
+	jgth = bcxz;
+}
+
+void main (char *argsv[]) {
+	
+	int xgfd,jgth;
+	
+	scanf("%d",&xgfd);
+	scanf("%d",&jgth);
+	
+	troca_por_valor(xgfd,jgth);
+	
+	printf("%d %d ",xgfd,jgth);
+	
+	troca_por_referencia(&xgfd,&jgth);
+	
+	printf("%d %d ",xgfd,jgth);
+
+}

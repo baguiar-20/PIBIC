@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <string.h>
+
+int main (){
+	int i = 0;
+	int num_atual, tam;
+	int vetor[50];	
+
+	printf("Numeros: ");
+	while(scanf("%d", &num_atual)==1){
+		vetor[i] = num_atual;
+		i++;
+	}
+	
+	printf("Inverso: ");
+	for (tam=i-1; tam>=0;tam--){
+		printf("%d ", vetor[tam]);
+	}	
+	printf("\n");
+
+}

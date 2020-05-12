@@ -1,0 +1,55 @@
+#include<stdio.h>
+
+
+int main () {
+
+    int vetor [1000];
+
+    int valor, resultado, i, dim=1, flag;
+
+
+
+	while (dim!=0) {
+	
+	scanf ("%d", &dim);
+
+	if ((dim>0) && (dim<=1000)) {
+	
+	for (i=0; i<dim; i++) {
+	
+    scanf("%d", &vetor[i]);
+	
+	}
+	
+	}
+	
+	else {
+			
+		return 0;		
+		}
+	scanf ("%d", &valor);
+	
+	flag=-9000000;
+
+	for (i=0; i<dim; i++) {
+
+		if (vetor[i]==valor) {
+
+			flag=valor;
+
+				}
+			}	
+
+		if (flag!=-9000000) {
+
+			printf ("SIM\n");
+		}
+
+		else {
+
+			printf ("NAO\n");
+		}
+
+	}		
+}
+

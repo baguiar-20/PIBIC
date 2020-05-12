@@ -1,0 +1,19 @@
+#include<stdio.h>
+#include<string.h>
+
+#define TAM 100
+
+int main(){
+
+int i, num_atual, vetor[100], j;
+printf("Numeros: ");
+while (scanf("%d", &num_atual) == 1) {
+  vetor[i] = num_atual;
+  i++;
+}
+getchar();
+printf("Inverso: ");
+for(j=i-1; j>=0; j--){
+printf("%d ", vetor[j]);
+}
+}

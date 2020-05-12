@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+int main()
+{
+	char bgft[10][10];
+	int ppyt,wrds,ptrs,rtse;
+	
+	for(ptrs=0;ptrs<=7;ptrs++){
+		for(rtse=0;rtse<=7;rtse++){
+			bgft[ptrs][rtse]='*';
+		}
+	}
+	scanf("%d",&ppyt);
+	scanf("%d",&wrds);
+	bgft[ppyt][wrds]='C';
+	
+	bgft[ppyt-2][wrds-1]='X';
+	bgft[ppyt-2][wrds+1]='X';
+	bgft[ppyt-1][wrds-2]='X';
+	bgft[ppyt-1][wrds+2]='X';
+	bgft[ppyt+1][wrds-2]='X';
+	bgft[ppyt+1][wrds+2]='X';
+	bgft[ppyt+2][wrds-1]='X';
+	bgft[ppyt+2][wrds+1]='X';
+	
+	ptrs=0;
+	while(1){
+		if(!(ptrs<=7)) break;
+		rtse=0;
+		while(1){
+			if(!(rtse<=7)) break;
+			printf("%c",bgft[ptrs][rtse]);
+			rtse++;
+		}
+		printf("\n");
+		ptrs++;
+	}
+	return 0;
+}
+

@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+int main(int argc, char *argv[]){
+
+  int *bgxx = fopen(argv[1], "rb");
+
+        int noan, vbhs;
+        char ecna;
+
+         vbhs = fread(&noan, sizeof(int), 1,bgxx);
+  for (;(vbhs>0);) {
+        printf("%d\n", noan);
+        vbhs = fread(&noan, sizeof(int), 1,bgxx);
+    }
+
+  fclose(bgxx);
+  return 0;
+}
+
+
+

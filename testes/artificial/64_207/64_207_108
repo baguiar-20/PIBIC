@@ -1,0 +1,21 @@
+//Leia um vetor V de 15 elementos inteiros, leia um valor inteiro X, procure X em V e diga em que posição o elemento X foi encontrado no vetor V. Lembre que a posição não necessariamente tem a ver com o índice do vetor. Em C a posição 1 está no índice 0 do vetor. Considere que todos os valores do vetor são diferentes. Imprimir "NAO" (sem aspas) se o elemento X não for encontrado em V. 
+#include<stdio.h>
+int main(){
+int i, x, p;
+int v[15];
+for(i=1; i<=15; i++){
+   scanf("%i", &v[i]);
+}
+
+ scanf("%i", &x);
+
+for(i=1; i<=15; i++){
+     if(v[i]==x)
+      p=i;
+} 
+
+if(p>0)
+printf("%i", p);
+else
+printf("NAO");
+}

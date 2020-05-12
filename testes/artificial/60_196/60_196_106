@@ -1,0 +1,148 @@
+//
+//  main.c
+//  CampoMinado
+//
+//  Created by Juscelino Tanaka on 12/08/13.
+//  Copyright (c) 2013 Juscelino Tanaka. All rights reserved.
+//
+
+#include <stdio.h>
+
+#define MAX 20
+
+int main(int argc, const char * argv[])
+{
+    int tam = 10;
+    int i, j, qtd;
+    int mat[MAX][MAX];
+    
+    scanf("%d", &tam);
+    
+    for (i = 0; i < MAX; i++) {
+        for (j = 0; j < MAX; j++) {
+            mat[i][j] = 0;
+        }
+    }
+    
+    for (i = 1; i <= tam; i++) {
+        for (j = 1; j <= tam; j++) {
+            scanf("%d", &mat[i][j]);
+        }
+    }
+    
+    //printf("\nMatriz do Jogo:\n");
+    //solucao bracal
+    for (i = 1; i <= tam; i++) {
+        for (j = 1; j <= tam; j++) {
+            qtd = 0;
+            if (mat[i-1][j-1] == 1) {
+                qtd++;
+            }
+            if (mat[i-1][j] == 1) {
+                qtd++;
+            }
+            if (mat[i-1][j+1] == 1) {
+                qtd++;
+            }
+            if (mat[i][j-1] == 1) {
+                qtd++;
+            }
+            if (mat[i][j+1] == 1) {
+                qtd++;
+            }
+            if (mat[i+1][j-1] == 1) {
+                qtd++;
+            }
+            if (mat[i+1][j] == 1) {
+                qtd++;
+            }
+            if (mat[i+1][j+1] == 1) {
+                qtd++;
+            }
+            
+            if (mat[i][j]) {
+                printf("* ");
+            } else {
+                printf("%d ", qtd);
+            }
+        }
+        printf("\n");
+    }
+    
+    return 0;
+}
+
+
+
+/*
+ 
+ 9
+ 0 0 0 0 0 0 1 0 0
+ 0 0 1 0 0 0 0 0 0
+ 0 0 0 0 0 0 1 0 0
+ 0 0 0 0 0 0 1 0 0
+ 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 1 1
+ 0 0 1 0 0 0 0 1 1
+ 0 0 0 0 0 0 0 0 0
+ 1 0 0 0 0 0 0 0 0
+ 
+ 8
+ 1 0 0 0 0 0 0 0
+ 0 0 0 0 1 0 0 0
+ 0 1 0 0 0 1 0 0
+ 0 0 0 0 0 0 0 0
+ 0 0 0 1 0 0 0 0
+ 0 1 1 1 0 0 1 0
+ 0 0 0 0 1 0 0 0
+ 0 0 0 0 0 0 0 0
+ 
+ 6
+ 1 1 1 1 1 1
+ 0 0 0 0 0 0
+ 1 1 1 1 1 1
+ 0 0 0 0 0 0
+ 1 1 1 1 1 1
+ 0 0 0 0 0 0
+ 
+ */
+
+
+
+
+
+/*
+ //solucao bracal
+ for (i = 1; i <= tam; i++) {
+ for (j = 1; j <= tam; j++) {
+ qtd = 0;
+ if (i > 0 && j > 0 && mat[i-1][j-1] == '*') {
+ qtd++;
+ }
+ if (i > 0 && mat[i-1][j] == '*') {
+ qtd++;
+ }
+ if (i > 0 && j < tam && mat[i-1][j+1] == '*') {
+ qtd++;
+ }
+ if (j > 0 && mat[i][j-1] == '*') {
+ qtd++;
+ }
+ if (j < tam && mat[i][j+1] == '*') {
+ qtd++;
+ }
+ if (i < tam && j > 0 && mat[i+1][j-1] == '*') {
+ qtd++;
+ }
+ if (i < tam && mat[i+1][j] == '*') {
+ qtd++;
+ }
+ if (i < tam && j < tam && mat[i+1][j+1] == '*') {
+ qtd++;
+ }
+ 
+ printf("%d ", qtd);
+ }
+ printf("\n");
+ }
+ */

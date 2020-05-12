@@ -1,0 +1,16 @@
+#include<stdio.h>
+int main(){
+int bgdj, lkij=0, xfgd;
+scanf("%i", &bgdj);
+for(xfgd=2; xfgd<=bgdj; xfgd++){
+   
+   while(bgdj%xfgd==0){
+         bgdj=bgdj/xfgd;
+         ++lkij;}
+}
+     
+if(!(lkij==2))
+printf("nao semiprimo");
+else
+printf("semiprimo");
+}   

@@ -1,0 +1,70 @@
+#include <stdio.h>
+
+int selec(int tam, int vet[tam]);
+int buscbin(int tam, int vet[tam], int esq, int dir,int n);
+
+main(){
+	int tam,i,n,x;
+
+	scanf("%d", &tam);
+
+	int vet[tam];
+	for(i=0;i<tam;i++){
+		scanf("%d", &vet[i]);
+		selecsort(i,vet);
+	}
+
+	for(i=0;i<tam;i++)
+		printf("%d ",vet[i]);
+	printf("\n");		
+
+	scanf("%d", &n);
+
+	while(n!=0){
+		x=buscbin(tam,vet,0,tam-1,n);
+	
+		if(x==1)
+			printf("SIM\n");
+		else{
+			if(x==0)
+				printf("NAO\n");
+		}
+		scanf("%d", &n);
+	}
+}
+int selecsort(int tam, int vet[tam]){
+		
+		int i,j,menor=0,aux=0,h;
+
+		for(i=0;i<tam;i++){
+			menor= vet[i];
+			for(j=i;j <= tam;j++){			
+				if(vet[j] <= menor){
+					aux= menor;
+					menor= vet[j];
+					vet[j]= aux;
+				}
+			}	
+			vet[i]= menor;
+		}			
+		return vet[tam];
+}
+int buscbin(int tam, int vet[tam], int esq, int dir,int n){
+
+	int x=0, meio=(esq+dir)/2;
+
+	if(dir < esq){
+		return x;
+	}else{
+		if(vet[meio]==n){
+			x=1;
+			return x;
+		}else{
+			if(n < vet[meio])
+				x= buscbin(tam,vet,esq,meio-1,n);			
+			else
+				x= buscbin(tam,vet,meio+1,dir,n);
+		}
+	}
+	return x;
+}

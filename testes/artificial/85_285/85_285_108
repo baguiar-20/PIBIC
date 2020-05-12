@@ -1,0 +1,35 @@
+/*Leia a dimensão de um array unidimensional de inteiros (entre 0 e 1000). Enquanto a dimensão for maior que zero, leia os dados do vetor, e um número inteiro. Utilizando um algoritmo de Busca Sequencial, verifique se este número está presente ou não no vetor. Se sim, a resposta deve ser "SIM" (sem as aspas), caso contrário a resposta deve ser "NAO" (também sem as aspas). Os dados no vetor NÃO DEVEM ser ordenados. Use alocação estática para armazenar o vetor. */
+#include<stdio.h>
+
+void main(void)
+{
+ int n, prc, i, j=0;
+ scanf("%d", &n);
+
+ while(n>0&&n<1000){
+  int vetor[n];
+ 
+  for(i=0; i<n; i++)
+  {
+   scanf("%d", &vetor[i]);  //colher o vetor
+  }//end for
+
+  scanf("%d", &prc);//  valor procurado
+
+  while(j<n&&vetor[j]!=prc)
+  {
+  j++;
+  }//end for
+
+  if(vetor[j]==prc)
+  printf("SIM\n");
+
+  else
+  printf("NAO\n");
+
+  j=0;
+  scanf("%d", &n);
+
+  }//end while
+
+}//end main

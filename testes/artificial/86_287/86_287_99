@@ -1,0 +1,83 @@
+#include<stdio.h>
+
+void ordena(int *xvet, int xdim);
+
+int main(void)
+{
+	int vet[1000];
+	int pesq;
+	int i,j;
+	int dim;
+	int aux;
+	int aux2;
+
+	scanf("%d", &dim);
+	
+	for (i=0; i<dim; i++)
+	{		
+	     scanf("%d", &vet[i]);
+	}
+
+    ordena(vet, dim); 
+		
+	for (i=0; i<dim; i++)
+	{		
+	     printf("%d ", vet[i]);
+	}
+	
+	scanf("%d", &pesq);
+	
+	while (pesq>0)
+	{
+		aux=busca(vet, pesq, 0, dim-1);
+
+		if (aux!=-1)
+		{
+		     if (pesq==vet[aux])
+                 printf("SIM\n");
+          }    
+		else 
+            printf("NAO\n");
+
+		scanf("%d", &pesq);	
+	}	
+
+}
+
+int busca(int *xvet, int xpesq, int xini, int xfim)
+{
+    int meio;
+	
+    meio=(xini+xfim)/2;
+	
+    if (xpesq == xvet[meio])
+       return meio;
+    else if (xini >= xfim)
+		  return -1;
+    else {
+    		if (xpesq < xvet[meio])
+        		return busca(xvet, xpesq, xini, meio-1);
+	
+    		if (xpesq > xvet[meio])
+			return busca(xvet, xpesq, meio+1, xfim);
+    }		
+}
+
+void ordena(int *xvet, int xdim)
+{
+    int i, j;
+    int aux;
+     
+    for (i=0; i<xdim; i++)
+	{		
+	     for (j=(i+1); j<xdim; j++)
+	     {		
+	     	if(xvet[i]>xvet[j])
+            {	
+		        aux=xvet[i];
+		 	   xvet[i]=xvet[j];
+			   xvet[j]=aux;
+			}			 
+         }
+	}
+}

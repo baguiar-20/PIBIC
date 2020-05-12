@@ -1,0 +1,62 @@
+#include<stdio.h>
+
+int i, j;
+
+int main(){
+	
+	int m,n;
+	char minado[20][20];
+	
+	scanf("%d", &n);
+	
+	for(i=0;i<n;i++){
+		for(j=0;j<n;j++){
+		
+			scanf("%i", &m);
+			minado[i][j]=m;
+		}
+	}
+	
+	i=0;
+	j=0;
+	
+	for(i=0;i<n;i++){
+		for(j=0;j<n;j++){
+			if(minado[i][j]==1){
+				minado[i][j]='*';
+			}
+		}
+	}
+	
+	for(i=0;i<n;i++){
+		for(j=0;j<n;j++){
+			
+			if(minado[i][j]=='*'){               //comparando as adjacencias para alterar o valor se existe uma mina.
+			
+			if(minado[i-1][j-1]!='*')	minado[i-1][j-1] = minado[i-1][j-1]+1;
+			if(minado[i][j-1]!='*') 	minado[i][j-1]   = minado[i][j-1]+1;
+			if(minado[i+1][j-1]!='*')	minado[i+1][j-1] = minado[i+1][j-1]+1;
+			if(minado[i+1][j]!='*') 	minado[i+1][j]   = minado[i+1][j]+1;
+			if(minado[i+1][j+1]!='*')	minado[i+1][j+1] = minado[i+1][j+1]+1;
+			if(minado[i][j+1]!='*') 	minado[i][j+1]   = minado[i][j+1]+1;
+			if(minado[i-1][j+1]!='*')	minado[i-1][j+1] = minado[i-1][j+1]+1;
+			if(minado[i-1][j]!='*')	    minado[i-1][j]   = minado[i-1][j]+1;
+			}
+		}
+	}
+	
+	i=0;
+	j=0;
+	
+	for(i=0;i<n;i++){
+		for(j=0;j<n;j++){
+			if(minado[i][j]=='*'){
+					printf("%c ", minado[i][j]);
+			}
+			else{
+				printf("%i ", minado[i][j]);
+			}
+		}	
+		printf("\n");
+	}
+}
